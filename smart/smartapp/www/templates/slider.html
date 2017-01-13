@@ -1,0 +1,42 @@
+<ion-view >
+	<ion-content scroll="true" class="padding">
+
+		<div class = "row">
+		<ion-slides style="height:150px;" options="{'loop':true,autoplay:true,speed: 2000}" >
+		    <ion-slide-page  ng-repeat="images in images">
+		        <img ng-src="{{images.img}}" style="width:100%;margin:auto;display:block" >
+		    </ion-slide-page>
+		<ion-slides>
+		</div>
+
+	<div class="col" ui-sref="app.specialoffers">
+    	<ul class="list">
+	    <li  class="item text-center">
+	       Special Offers
+	    </li>
+	</ul>
+  	</div>
+
+  		<div class = "row">
+		   <div class = "col"> <img ui-sref="app.bus" src="img/ionic.png" height="100%" width="100%"></div>
+		   <div class = "col"> <img ui-sref="app.others" src="img/ionic.png" height="100%" width="100%"></div>
+		   <div class = "col"> <img  ui-sref="app.emergency" src="img/ionic.png" height="100%" width="100%"></div>
+		   <div class = "col"> <img ui-sref="app.other" src="img/ionic.png" height="100%" width="100%"></div>
+		</div>
+		<div class = "row">
+		   <div class = "col"> <img src="img/bus.png" height="100%" width="100%"></div>
+		   <div class = "col"> <img src="img/gift.png" height="100%" width="100%"></div>
+		   <div class = "col"> <img src="img/home.png" height="100%" width="100%"></div>
+		   <div class = "col"> <img src="img/jewery.png" height="100%" width="100%"></div>
+		</div>
+		<div class = "row">
+		   <div class = "col"> <img src="img/ionic.png" height="100%" width="100%"></div>
+		   <div class = "col"> <img src="img/ionic.png" height="100%" width="100%"></div>
+		   <div class = "col"> <img src="img/ionic.png" height="100%" width="100%"></div>
+		   <div class = "col"> <img src="img/ionic.png" height="100%" width="100%"></div>
+		</div>
+	 <!-- <div class="bar bar-footer bar-balanced">
+      <div class="title">Footer</div>
+    </div>-->
+    </ion-content>
+</ion-view>

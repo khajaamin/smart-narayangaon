@@ -1,0 +1,47 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Login</h1>
+    <div class="buttons">
+      <!-- <button class="button button-clear" ng-click="closeLogin()">Close</button> -->
+    </div>
+  </ion-header-bar>
+  <ion-content>
+  <div>
+  {{shop}}
+        <img src="img/ionic.png" class="padding" style="display: block; margin-left: auto; margin-right: auto;">
+      </div>
+      <form name="loginFrm" ng-submit="login(loginFrm)" novalidate>
+      <div class="list">
+        <label class="item item-input item-floating-label item-stacked-label">
+          <span class="input-label">UserName</span>
+          <input type="text" ng-model="user.username" name="username" placeholder="First Name" required>
+          <span ng-if="loginFrm.$submitted || loginFrm.username.$touched">
+              <span class="error" ng-if="loginFrm.username.$error.required">
+                  Please Enter Username
+              </span>
+              <span class="error" ng-if="username">
+                {{username}}
+              </span>
+                
+              </span>
+          </span>
+        </label>
+    </span>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Password</span>
+          <input type="password" placeholder="Last Name" name="password" ng-model="user.password" required>
+          <span ng-if="loginFrm.$submitted || loginFrm.password.$touched">
+              <span class="error" ng-if="loginFrm.password.$error.required">
+                  Please Enter Username
+              </span>
+              <span class="error" ng-if="password">
+                {{password}}
+              </span>
+          </span>
+        </label>
+        <button class="button  button-positive button-block">Login</button>
+         <a ui-sref="app.signup" class="button button-block button-clear button-positive">Create A new Account</a>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

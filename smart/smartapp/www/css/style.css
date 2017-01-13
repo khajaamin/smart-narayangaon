@@ -1,0 +1,20 @@
+/* Empty. Add your own CSS if you like */
+.error{
+	color:red;
+}
+a{
+	text-decoration: none;
+	text-align: center;
+	color: black;
+}
+body {
+  cursor: url('http://ionicframework.com/img/finger.png'), auto;
+}
+
+.ionic_ratings .icon {
+  font-size:50px;
+}
+
+.ionic_ratings .read_only {
+  pointer-events:none;
+}
