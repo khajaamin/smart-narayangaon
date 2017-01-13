@@ -1,0 +1,84 @@
+<ion-view view-title="Ad With Us">
+  <ion-content>
+  <div ng-controller="AddCntrl">
+  	<button class="button button-full button-positive">SD Advertisements</button>
+	{{message}}
+	<form name="adwithus" ng-submit="submitForm()" novalidate>
+		<div class="list">
+		  <label class="item item-input item-floating-label">
+		    <span class="input-label">Shop Name / Service</span>
+		    <input type="text" name="shopname" ng-model="data.shopname" placeholder="Shop Name / Service" required>
+		  	<span class="error" ng-show="adwithus.shopname.$touched && adwithus.shopname.$invalid">Shop Name / Service is required.</span>
+		  </label>
+		  <label class="item item-input item-floating-label">
+		    <span class="input-label">Shop Address</span>
+		    <textarea placeholder="Shop Address" name="shopaddress" ng-model="data.shopaddress" required></textarea>
+		  	<span class="error" ng-show="adwithus.$submitted ||(adwithus.shopaddress.$touched && adwithus.shopaddress.$invalid)">Shop Address is required.</span>
+		  </label>
+		  <label class="item ">	
+				<span class="input-label">Shop Timing / Working Hours</span>
+		  <div class="row">	  	
+		  	<div class="col">
+			  	<label class="item item-input item-floating-label">
+			    	<span class="input-label">From</span>
+			    	<input type="number" name="from" ng-model="data.from" placeholder="From Eg.10:00 AM">
+			    	<span class="error" ng-show="adwithus.from.$error.number">Invalid time</span>
+			  	</label>
+		  	</div>
+		  	<div class="col">
+		  		<label class="item item-input item-floating-label">
+			    	<span class="input-label">To</span>
+			    	<input type="number" name="to" placeholder="To Eg.10:00 PM" ng-model="data.to">
+			  		<span class="error" ng-show="adwithus.to.$error.number">Invalid time</span>
+			  	</label>
+		  	</div>
+		  </div>
+		  </label>
+		  <label class="item item-input item-select ">
+		    <span class="input-label">
+		      Weekly Off
+		    </span>
+		    <select ng-model="data.weeklyoff">
+		      <option value="">Select Day</option>
+		      <option value="Monday">Monday</option>
+		      <option value="Tuesday">Tuesday</option>
+		      <option value="Wendesday">Wendesday</option>
+		      <option value="Thursday">Thursday</option>
+		      <option value="Friday">Friday</option>
+		      <option value="Saturday">Saturday</option>
+		      <option value="Sunday">Sunday</option>
+		    </select>
+		  </label>
+		  <label class="item item-input item-floating-label">
+		    <span class="input-label">Shop Owner Name</span>
+		    <input type="text" name="owner" placeholder="Shop Owner Name" ng-model="data.owner" required>
+		  	<span class="error" ng-show="adwithus.owner.$touched && adwithus.owner.$invalid">Shop Owner Name is required.</span>
+		  </label>
+		   <label class="item item-input item-floating-label">
+		    <span class="input-label">Description</span>
+		    <textarea placeholder="Description" name="description" ng-model="data.description" required></textarea>
+		  	 <span class="error" ng-show="adwithus.description.$touched && adwithus.description.$invalid">Description is required.</span>
+		  </label>
+		  <label class="item item-input item-floating-label">
+		    <span class="input-label">Contact Number</span>
+		    <input type="number" placeholder="Contact Number" name="contactno" ng-model="data.contactno" required>
+		 	<span class="error" ng-show="adwithus.contactno.$touched && adwithus.contactno.$invalid">Contact Number is required.</span>
+		 	<span class="error" ng-show="adwithus.contactno.$error.number">Only Numbers Allowed</span>
+		  </label>
+		  <label class="item item-input item-floating-label">
+		    <span class="input-label">Optional Contact Number</span>
+		    <input type="number" placeholder="Optional Contact Number" name="optcontact" ng-model="data.optcontact">
+		  	<span class="error" ng-show="adwithus.optcontact.$error.number">Only Numbers Allowed</span>
+		  </label>
+		  <label class="item item-input item-floating-label">
+		    <span class="input-label">Email</span>
+		    <input type="email" placeholder="Email" name="email" ng-model="data.email">
+		  	<span class="error" ng-show="adwithus.email.$error.email">Invalid email address.</span>
+		  </label>
+		  <input type="submit" class="button button-block button-balanced" ng-disabled="adwithus.data.$dirty && adwithus.data.$invalid" value="Submit" name="submit">
+	  		
+		</div>
+	</form>
+</div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,34 @@
+<div ng-repeate="advertise in advertisements"></div>
+  <div class="list card">
+    <div class="item item-avatar">
+      <img src="">
+      <h2>{{shopdetails.shop_name}}</h2>
+      <p>{{shopdetails.shop_owner}}</p>
+    </div>
+
+    <div class="item item-body">
+      <!-- <img class="full-image" src="../img/nature.jpg"> -->
+      <img class="full-image" ng-src="{{IMG_BASE}}{{shopdetails.shop_image}}" title="{{shopdetails.shop_name}}" width="100%">
+      <p>
+        {{shopdetails.description}}
+      </p>
+     
+       <p>Address:{{shopdetails.shop_address}}
+       </p>
+       <p>Time:{{shopdetails.time_from}} AM to {{shopdetails.time_to}} PM
+       </p>
+       <p>
+       Contact Us:{{shopdetails.mobile}}
+       </p>
+       <p>
+       Weekly Off:{{shopdetails.weekly_off}}
+        </p>
+        <p>
+       Website:<a href="{{shopdetails.website}}">{{shopdetails.website}}</a>
+        </p>
+     <!--  <p>
+        <a href="#" class="subdued">1 Like</a>
+        <a href="#" class="subdued">5 Comments</a>
+      </p> -->
+    </div>
+  </div>

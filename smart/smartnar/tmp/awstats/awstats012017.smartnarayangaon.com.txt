@@ -1,0 +1,306 @@
+AWSTATS DATA FILE 7.4 (build 20140726)
+# If you remove this file, all statistics for date 201701 will be lost/reset.
+# Last config file used to build this data file was /home/smartnarayangaon/tmp/awstats/awstats.smartnarayangaon.com.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 28
+POS_GENERAL 2025                
+POS_TIME 2696                
+POS_VISITOR 6892                
+POS_DAY 7455                
+POS_DOMAIN 3307                
+POS_LOGIN 3603                
+POS_ROBOT 3758                
+POS_WORMS 3988                
+POS_EMAILSENDER 4119                
+POS_EMAILRECEIVER 4262                
+POS_SESSION 7671                
+POS_SIDER 7877                
+POS_FILETYPES 4397                
+POS_DOWNLOADS 4645                
+POS_OS 4693                
+POS_BROWSER 4864                
+POS_SCREENSIZE 5186                
+POS_UNKNOWNREFERER 5260                
+POS_UNKNOWNREFERERBROWSER 5446                
+POS_ORIGIN 5528                
+POS_SEREFERRALS 5663                
+POS_PAGEREFS 5807                
+POS_SEARCHWORDS 5988                
+POS_KEYWORDS 6140                
+POS_MISC 2360                
+POS_ERRORS 6199                
+POS_CLUSTER 3459                
+POS_SIDER_404 6342                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20170110104949 1 0 8336520701248
+FirstTime 20170104174231
+LastTime 20170110104949
+LastUpdate 20170110174032 1 0 1 0 0
+TotalVisits 25                  
+TotalUnique 12                  
+MonthHostsKnown 0                   
+MonthHostsUnknown 12                  
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+WindowsMediaPlayerSupport 0 0 0
+JavaEnabled 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+QuickTimeSupport 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+AddToFavourites 0 6 0
+RealPlayerSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 24 61 2899172 3 8 278564
+1 8 8 63952 3 6 5466
+2 2 7 499208 0 0 0
+3 2 2 8182 0 0 0
+4 1 1 1822 0 2 23
+5 0 0 0 0 0 0
+6 1 1 1822 0 0 0
+7 4 7 351056 0 1 23
+8 2 7 504104 0 4 318
+9 1 1 1822 0 0 0
+10 4 14 996797 0 1 318
+11 0 0 0 0 0 0
+12 0 0 0 0 0 0
+13 32 46 1266219 13 21 242860
+14 15 22 1778676 2 6 2409
+15 19 49 900078 10 15 143150
+16 19 82 1123171 8 8 283409
+17 6 14 23057 2 2 0
+18 29 57 321062 10 11 0
+19 0 0 0 0 0 0
+20 8 8 35718 0 1 23
+21 0 0 0 0 0 0
+22 0 0 0 0 0 0
+23 0 0 0 2 2 3644
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 25 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 6
+in 153 350 9372583
+us 14 22 894408
+ru 6 6 11582
+ca 2 2 2025
+id 1 6 495117
+fr 1 1 203
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 25 first Hits must be first (order not required for others)
+BEGIN_ROBOT 3
+no_user_agent 4 7288 20170109015430 0
+unknown 4 69 20170107074549 4
+crawl 1 1822 20170106232936 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 10
+jpg 8 106920 0 0
+html 47 107913 0 0
+Unknown 5 44935 0 0
+woff 2 46848 0 0
+map 4 1557148 0 0
+woff2 4 54084 0 0
+png 9 544782 0 0
+php 115 605167 0 0
+js 136 5858861 0 0
+css 57 1849260 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 0
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 8
+win8.1 1 1
+blackberry 3 3
+linux 209 106
+win7 15 10
+linuxubuntu 153 54
+winlong 1 1
+Unknown 4 1
+macosx6 1 1
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 15
+firefox28.0 1 1
+firefox25.0 1 1
+firefox14.0.1 5 5
+chrome39.0.2171.65 153 54
+firefox50.0 135 69
+chrome11.0.696.71 2 2
+firefox49.0 1 1
+msie8.0 6 6
+blackberry 3 3
+chrome23.0.1271.97 1 1
+safari 6 1
+chrome27.0.1453.90 1 1
+chrome32.0.1700.107 6 1
+firefox35.0 62 30
+mozilla 4 1
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 1
+Mozilla/4.0_(compatible;_http://search.thunderstone.com/texis/websearch/about.html) 20170107074552
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 0
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 81 84
+From1 0 0
+From2 0 0
+From3 1 1
+From4 95 302
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 0
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 25 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 1
+http://top10-way.com/try.php 1 1
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 25 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 6
+302 29 0
+301 6 1464
+403 3 7227
+500 10 660218
+404 20 0
+206 5 280529
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referrer
+BEGIN_SIDER_404 4
+/img-sys/bg.jpg 5 http://smartnarayangaon.com/cpanel
+/img-sys/headerbg.jpg 5 http://smartnarayangaon.com/cpanel
+/img-sys/contentbox.jpg 5 http://smartnarayangaon.com/cpanel
+/images/default.png 5 http://smartnarayangaon.com/backend/index.php
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 25 first Hits must be first (order not required for others)
+BEGIN_VISITOR 12
+183.87.239.56 153 350 9372583 20170108084840
+69.58.178.56 8 8 35718 20170105201701
+185.127.10.41 6 6 11582 20170110104949 20170110104949 /
+162.242.156.106 2 2 8182 20170106031852
+173.79.162.220 1 1 4091 20170106132321
+54.85.53.235 1 1 1822 20170108061319
+54.152.113.230 1 6 497386 20170106002625
+202.159.112.42 1 6 495117 20170107025410
+158.69.25.178 1 1 1822 20170107043237
+149.202.127.215 1 1 203 20170105073347
+158.69.229.134 1 1 203 20170105104907
+69.4.39.174 1 4 347209 20170107074549
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 7
+20170104 1 1 203 1
+20170105 65 164 1512401 7
+20170106 26 71 2408600 6
+20170107 49 78 3877787 5
+20170108 34 71 2973283 4
+20170109 1 1 1822 1
+20170110 1 1 1822 1
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 7
+2mn-5mn 2
+30s-2mn 1
+15mn-30mn 1
+0s-30s 16
+1h+ 1
+5mn-15mn 2
+30mn-1h 1
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 25 first Pages must be first (order not required for others)
+BEGIN_SIDER 9
+/backend/index.php 101 542601 2 3
+/ 35 91584 22 16
+/index.php 14 62566 0 2
+/images/ 7 3132 0 0
+/cpanel 5 44935 1 3
+/backend/ 5 13197 0 0
+/backend/assets/9ab3e159/css/bootstrap.css.map 4 1557148 0 0
+/backend/assets/9ab3e159/fonts/glyphicons-halflings-regular.woff2 4 54084 0 0
+/backend/assets/9ab3e159/fonts/glyphicons-halflings-regular.woff 2 46848 0 0
+END_SIDER

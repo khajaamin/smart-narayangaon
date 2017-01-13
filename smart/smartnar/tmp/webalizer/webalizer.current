@@ -1,0 +1,278 @@
+# Webalizer V2.23-05 Incremental Data - 01/10/2017 10:49:49
+2017 1 10 10 49 49
+475 289 15 31 10 17 11736125 220 36 0
+1 1 90 4 10
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+1 1 203 1 1 1
+194 85 1936212 6 87 10
+84 56 2415333 7 32 8
+106 76 4124924 6 60 7
+87 68 3253987 4 37 7
+2 2 3644 2 2 2
+1 1 1822 1 1 1
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+69 56 3177736 26
+14 11 69418 11
+7 7 499208 2
+2 2 8182 2
+3 3 1845 1
+0 0 0 0
+1 1 1822 1
+8 8 351079 4
+11 8 504422 2
+1 1 1822 1
+15 15 997115 4
+0 0 0 0
+0 0 0 0
+67 44 1509079 43
+28 18 1781085 14
+64 32 1043228 27
+90 32 1406580 27
+16 6 23057 8
+68 34 321062 37
+0 0 0 0
+9 9 35741 8
+0 0 0 0
+0 0 0 0
+2 2 3644 2
+0
+0
+0
+289
+0
+0
+0
+0
+0
+5
+0
+6
+29
+0
+113
+0
+0
+0
+0
+0
+3
+20
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+10
+0
+0
+0
+0
+0
+# -urls- 
+/backend/assets/a20eb465/yii.js
+0 16 0 72516 0 0
+/backend/assets/9ab3e159/js/bootstrap.js
+0 17 0 329883 0 0
+/assets/a20eb465/yii.js
+0 15 0 163161 0 0
+/backend/assets/9ab3e159/fonts/glyphicons-halflings-regular.woff
+0 2 0 46848 0 0
+/backend/css/site.css
+0 11 0 11532 0 0
+/assets/a20eb465/yii.activeForm.js
+0 3 0 94206 0 0
+/backend/assets/9d304825/jquery.js
+0 17 0 1201704 0 0
+/images/logoimages/app_icon_475960872.jpg
+0 2 0 53460 0 0
+/assets/a20eb465/yii.validation.js
+0 3 0 45987 0 0
+/favicon.ico
+0 6 0 1590 0 0
+/backend/assets/9ab3e159/fonts/glyphicons-halflings-regular.woff2
+0 4 0 54084 0 0
+/backend/assets/a20eb465/yii.validation.js
+0 13 0 61316 0 0
+/assets/9ab3e159/css/bootstrap.css
+0 14 0 1168080 0 0
+/images/logoimages/app_icon_2097447517.png
+0 6 0 510560 0 0
+/backend/assets/9ab3e159/css/bootstrap.css.map
+0 4 0 1557148 0 0
+/images/categoriesicon/category_icon_967337992.jpg
+0 6 0 53460 0 0
+/backend/assets/8aebf27e/themes/smoothness/jquery-ui.css
+0 3 0 70424 0 0
+/css/site.css
+0 14 0 15184 0 0
+/backend/assets/9ab3e159/css/bootstrap.css
+0 17 0 639487 0 0
+/backend/
+0 106 0 555798 4 7
+/backend/assets/8aebf27e/jquery-ui.js
+0 3 0 941192 0 0
+/assets/9ab3e159/js/bootstrap.js
+0 15 0 699597 0 0
+/cpanel
+0 5 0 44935 2 2
+/
+0 54 0 163260 29 11
+/backend/assets/a20eb465/yii.gridView.js
+0 8 18446744073709551615 28704 0 0
+/assets/9d304825/jquery.js
+0 15 18446744073709551615 2317959 0 0
+/images/
+0 7 129 3132 0 0
+/robots.txt
+0 4 0 69 0 0
+/assets/a20eb465/yii.captcha.js
+0 1 0 2110 0 0
+/images/default.png
+0 3 0 34222 0 0
+/backend/assets/a20eb465/yii.activeForm.js
+0 13 0 125608 0 0
+# End Of Table - urls
+# -sites- (monthly)
+69.58.178.56
+0 9 9 35741 1 1483647421
+/
+centro-39.grapeshot.co.uk
+0 1 1 1822 1 1483745376
+/
+pool-173-79-162-220.washdc.fios.verizon.net
+0 1 1 4091 1 1483709001
+/
+copilot.thunderstone.com
+0 5 5 347232 1 1483775149
+/
+ip215.ip-149-202-127.eu
+0 1 1 203 1 1483601627
+/
+ec2-54-152-113-230.compute-1.amazonaws.com
+0 6 6 497386 1 1483662385
+/
+mars.codestack.info
+0 3 3 1845 1 1483763557
+/
+162.242.156.106
+0 2 2 8182 1 1483672732
+/
+host-239156.fivenetwork.com
+0 428 248 10323611 14 1483865320
+/cpanel
+38.100.21.62
+0 1 0 0 1 1483630411
+/
+ofdp-3.phishmongers.com
+0 4 4 7288 4 1483926870
+/
+ns7000703.ip-158-69-229.net
+0 1 1 203 1 1483613347
+/
+ec2-54-85-53-235.compute-1.amazonaws.com
+0 1 1 1822 1 1483855999
+/
+202.159.112.42
+0 6 6 495117 1 1483757650
+/
+185.127.10.41
+0 6 6 11582 6 1484045389
+/
+# End Of Table - sites (monthly)
+# -sites- (daily)
+185.127.10.41
+0 1 1 1822 1 1484045389
+/
+# End Of Table - sites (daily)
+# -referrers- 
+http://smartnarayangaon.com/backend/index.php
+0 247
+http://smartnarayangaon.com/backend/
+0 8
+http://smartnarayangaon.com/backend/assets/9ab3e159/css/bootstrap.css
+0 5
+- (Direct Request)
+0 114
+http://www.smartnarayangaon.com/
+0 5
+http://smartnarayangaon.com/
+0 69
+http://smartnarayangaon.com/index.php
+0 11
+http://top10-way.com/try.php
+0 1
+http://www.smartnarayangaon.com/cpanel
+0 3
+http://smartnarayangaon.com/cpanel
+0 12
+# End Of Table - referrers
+# -agents- 
+Mozilla/5.0 (compatible; GrapeshotCrawler/2.0; +http://www.grapeshot.co.uk/crawler.php)
+0 1
+Mozilla/5.0 (Windows NT 6.3; WOW64; rv:28.0) Gecko/20100101 Firefox/28.0
+0 1
+Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:35.0) Gecko/20100101 Firefox/35.0
+0 73
+Mozilla/5.0 (Windows NT 6.0) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.97 Safari/537.11
+0 1
+Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/11.0.696.71 Safari/534.24
+0 2
+Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.90 Safari/537.36
+0 1
+BlackBerry9000/4.6.0.167 Profile/MIDP-2.0 Configuration/CLDC-1.1 VendorID/102 ips-agent
+0 3
+Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.2)
+0 1
+Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/39.0.2171.65 Chrome/39.0.2171.65 Safari/
+0 181
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:25.0) Gecko/20100101 Firefox/25.0
+0 1
+Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0)
+0 6
+Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:14.0; ips-agent) Gecko/20100101 Firefox/14.0.1
+0 6
+Mozilla/4.0 (compatible; http://search.thunderstone.com/texis/websearch/about.html)
+0 5
+Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:49.0) Gecko/20100101 Firefox/49.0
+0 3
+Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.107 Safari/537.36
+0 6
+Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) splash Safari/538.1
+0 6
+Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0
+0 174
+# End Of Table - agents
+# -search strings- 
+# End Of Table - search strings
+# -usernames- 
+# End Of Table - usernames

@@ -1,0 +1,32 @@
+<ion-view view-title="{{apps[0].name}}">
+  <ion-content>
+    	
+    	<slider></slider>
+    	<special-offers></special-offers>
+    	<categories></categories>
+<div >
+	<div class="card">
+		 <div class="item item-text-wrap row">
+		   <button class="button button-light col col-20">
+		       <i class="icon ion-social-whatsapp"></i>
+		   </button>
+		   <button class="button button-light col col-20">
+		       <i class="icon ion-social-facebook"></i>
+		   </button>
+		   <button class="button button-light col col-20">
+		       <i class="icon ion-social-twitter"></i>
+		   </button>  
+		   <button class="button button-light col col-20">
+		       <i class="icon ion-android-textsms"></i>
+		   </button> 
+		   <button class="button button-light col col-20">
+		       <i class="icon ion-ios-email"></i>
+		   </button> 
+		 </div>
+	</div>
+</div>
+    <script id="templates/rating.html" type="text/ng-template">
+	<rating ng-model="data.rating" max="data.max" ></rating>
+	</script>
+  </ion-content>
+</ion-view>
