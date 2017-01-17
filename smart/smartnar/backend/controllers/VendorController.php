@@ -115,10 +115,11 @@ class VendorController extends Controller
             $imageName = "vendor_image_".rand();
             
             $model->file = UploadedFile::getInstance($model,'shop_image');
-            
+            if(!empty($model->file)){      
             $model->file->saveAs('../images/vendors/'.$imageName.'.'.$model->file->extension);
             
             $model->shop_image = 'vendors/'.$imageName.'.'.$model->file->extension;
+            }
             if($model->save())
             {
                 return $this->redirect(['view', 'id' => $model->id]);

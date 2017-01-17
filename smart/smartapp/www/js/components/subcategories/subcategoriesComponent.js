@@ -9,6 +9,7 @@ app.component("subCategories",
 		$scope.categories = []; 
 		CategoriesService.find({parent_id:$state.params.id}).then(function(res){
 					$scope.categories = res.data;
+			
 				});
 }
 });

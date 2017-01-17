@@ -1,15 +1,43 @@
 
-app.controller('AddCntrl',function($scope,$http,$state,sessionService) {
+app.controller('AddCntrl',function($scope,$http,$state,sessionService,API_BASE,ionicTimePicker) {
 
+    $scope.openTimePicker1 = function() {
+        var ipObj1 = {
+            callback: function(val) {
+                if (typeof(val) === 'undefined') {
+                    console.log('Time not selected');
+                } else {
+                    var selectedTime = new Date(val * 1000);
+                    $scope.data.from = selectedTime.getUTCHours() + ":" + selectedTime.getUTCMinutes();
+                }
+            },
+            inputTime: 8,
+            format: 24,
+            setLabel: 'Set'
+        };
+        if (ionicTimePicker)
+            ionicTimePicker.openTimePicker(ipObj1);
+    };
 
-    var currentUser = sessionService.get("LoggedInUser"); 
-       //console.log(currentUser);
-        if(currentUser == 'undefined' || currentUser == null )
-        {
-            console.log("currentUser",currentUser);
+    $scope.openTimePicker2 = function() {
+        var ipObj1 = {
+            callback: function(val) {
+                if (typeof(val) === 'undefined') {
+                    console.log('Time not selected');
+                } else {
 
-            $state.go('app.login');
-        }
+                    var selectedTime = new Date(val * 1000);
+                    console.log(selectedTime);
+                    $scope.data.to = selectedTime.getUTCHours() + ":" + selectedTime.getUTCMinutes();
+                }
+            },
+            inputTime: 8,
+            format: 24,
+            setLabel: 'Set'
+        };
+        if (ionicTimePicker)
+            ionicTimePicker.openTimePicker(ipObj1);
+    };
 
 
 

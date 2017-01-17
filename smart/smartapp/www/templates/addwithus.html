@@ -13,26 +13,21 @@
 		  <label class="item item-input item-floating-label">
 		    <span class="input-label">Shop Address</span>
 		    <textarea placeholder="Shop Address" name="shopaddress" ng-model="data.shopaddress" required></textarea>
-		  	<span class="error" ng-show="adwithus.$submitted ||(adwithus.shopaddress.$touched && adwithus.shopaddress.$invalid)">Shop Address is required.</span>
+		  	<span class="error" ng-show="adwithus.shopaddress.$touched && adwithus.shopaddress.$invalid">Shop Address is required.</span>
 		  </label>
 		  <label class="item ">	
 				<span class="input-label">Shop Timing / Working Hours</span>
-		  <div class="row">	  	
-		  	<div class="col">
-			  	<label class="item item-input item-floating-label">
-			    	<span class="input-label">From</span>
-			    	<input type="number" name="from" ng-model="data.from" placeholder="From Eg.10:00 AM">
-			    	<span class="error" ng-show="adwithus.from.$error.number">Invalid time</span>
-			  	</label>
-		  	</div>
-		  	<div class="col">
-		  		<label class="item item-input item-floating-label">
-			    	<span class="input-label">To</span>
-			    	<input type="number" name="to" placeholder="To Eg.10:00 PM" ng-model="data.to">
-			  		<span class="error" ng-show="adwithus.to.$error.number">Invalid time</span>
-			  	</label>
-		  	</div>
-		  </div>
+			  	<label class="item item-input" ng-click="openTimePicker1()">
+                    <span class="input-label"> From <span class="error ">*</span></span>
+                      
+                    <input type="text" placeholder="From *"  ng-model="data.from">
+                </label>
+		  		<label class="item item-input" ng-click="openTimePicker2()">
+                    <span class="input-label"> To   <span class="error ">*</span></span>                    
+                      
+                    <input type="text"  placeholder="To *"  ng-model="data.to">
+                      
+                </label>
 		  </label>
 		  <label class="item item-input item-select ">
 		    <span class="input-label">
@@ -75,6 +70,15 @@
 		    <input type="email" placeholder="Email" name="email" ng-model="data.email">
 		  	<span class="error" ng-show="adwithus.email.$error.email">Invalid email address.</span>
 		  </label>
+			 <label class="item item-input ">
+
+                    <input type="button"  ng-click="openmapModal()" value="Map Location *">
+                    <div >
+                    Lat <input type="text"  ng-model="data.latitude">
+                     Logn <input type="text"  ng-model="data.longnitude">
+                    </div>
+                </label>
+
 		  <input type="submit" class="button button-block button-balanced" ng-disabled="adwithus.data.$dirty && adwithus.data.$invalid" value="Submit" name="submit">
 	  		
 		</div>

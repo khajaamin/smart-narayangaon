@@ -81,8 +81,12 @@ class AppController extends Controller
             
             $imageName = "app_image_".rand();
             $model->file = UploadedFile::getInstance($model,'logo_image');
-            $model->file->saveAs('../images/app/'.$imageName.'.'.$model->file->extension);
-            $model->logo_image = 'app/'.$imageName.'.'.$model->file->extension;
+            if(!empty($model->file)){          
+                
+                $model->file->saveAs('../images/app/'.$imageName.'.'.$model->file->extension);
+                $model->logo_image = 'app/'.$imageName.'.'.$model->file->extension;
+            
+            }
             $model->save();
 
             return $this->redirect(['view', 'id' => $model->id]);

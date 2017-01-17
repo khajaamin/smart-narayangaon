@@ -1,7 +1,7 @@
 <div ng-repeate="advertise in advertisements"></div>
   <div class="list card">
     <div class="item item-avatar">
-      <img src="">
+      <img src="{{IMG_BASE}}{{shopdetails.shop_image}}">
       <h2>{{shopdetails.shop_name}}</h2>
       <p>{{shopdetails.shop_owner}}</p>
     </div>
@@ -15,7 +15,7 @@
      
        <p>Address:{{shopdetails.shop_address}}
        </p>
-       <p>Time:{{shopdetails.time_from}} AM to {{shopdetails.time_to}} PM
+       <p>Time:{{shopdetails.time_from}} to {{shopdetails.time_to}} 
        </p>
        <p>
        Contact Us:{{shopdetails.mobile}}
@@ -24,7 +24,10 @@
        Weekly Off:{{shopdetails.weekly_off}}
         </p>
         <p>
-       Website:<a href="{{shopdetails.website}}">{{shopdetails.website}}</a>
+       Website:<a href="{{shopdetails.website}}" target="_BLANK">{{shopdetails.website}}</a>
+        </p>
+        <p>
+         Rating:{{shopdetails.value}}
         </p>
      <!--  <p>
         <a href="#" class="subdued">1 Like</a>

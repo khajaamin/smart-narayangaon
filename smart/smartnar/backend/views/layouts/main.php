@@ -49,6 +49,7 @@ AppAsset::register($this);
             ['label' => 'Categories', 'url' => ['/categories/index']],
             ['label' => 'Sliders', 'url' => ['/sliders/index']],
             ['label' => 'Advertise', 'url' => ['/advertisements/index']],
+            ['label' => 'Buses', 'url' => ['/buses/index']],
         ];
     
     }

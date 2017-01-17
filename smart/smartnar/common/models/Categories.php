@@ -37,7 +37,7 @@ class Categories extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['app_id','category_name','description'], 'required'],
+            [['app_id','category_name'], 'required'],
             [['app_id', 'parent_id'], 'integer'],
             [['file'],'file'],
             [['description'], 'string'],

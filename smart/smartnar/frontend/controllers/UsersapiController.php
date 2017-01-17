@@ -44,27 +44,31 @@ class UsersapiController extends ActiveController
 
          $data =  json_decode(utf8_encode(file_get_contents("php://input")), false);
          if(empty($data)){
-
-                $response["message"]='sorry something went wrong';
-            
+                $mob = 7385455311;
+                $random = 87659;
+                $verify = Yii::$app->SmsResponse->getResponse($mob,$random);
+                //$response["message"]='sorry something went wrong';
+                     
             }else{
             
                 $model->contact= $data->mobile;
                 $model->username = $data->name;
                 $model->email = $data->email;
-                if($model->validate()){
-                        
+                
+                        $mob = $data->mobile;
                     if($model->save(false)){
 
-                        // $random = rand(5000,10000); 
+                         $random = rand(5000,10000); 
                         // //Sms intrigration goes here
-                        // //Send SMS and save otp into same object
-                        // $model->otp = $random;
-
-                        // if($model->save())
+                            // //Send SMS and save otp into same object
+                        $model->otp = $random;
+                        
+                        
+                        $model->save(false);
                         // {
-                        //     //Send smsm here 
-                        // }
+                        //     $verify = Yii::$app->SmsResponse->getResponse($mob,$random);
+                            
+                        // }                    
 
                         $response["message"]="Thank You for Register We will Contact you very soon";
                       
@@ -79,10 +83,7 @@ class UsersapiController extends ActiveController
                         return $output;
                     }
 
-                }else{
-
-                    return array('message'=>$model>getErrors());
-                }
+                
 
             }
     }
@@ -94,11 +95,11 @@ class UsersapiController extends ActiveController
         if(empty($data)){
 
             $response["message"]='sorry something went wrong';
-            
+            return $response;
         }else{
-            $rating->shop_id = 1;
-            $rating->value = $data;
-
+            $rating->shop_id = $data->id;
+            $rating->value = $data->rate;
+            $rating->user_id = $data->user_id;
             if($rating->save()){
 
                 $response["message"]="Thank You";
@@ -107,6 +108,41 @@ class UsersapiController extends ActiveController
 
             }
         }
+    }
+
+    public function actionVerify()
+    {
+        $model = new Users();
+
+         $data =  json_decode(utf8_encode(file_get_contents("php://input")), false);
+         if(empty($data)){
+                
+                 // $mobile = 8899007766;
+                 // $otp = 9841;
+                 // $verify = $model->find()->where(['contact'=>$mobile,'otp'=>$otp])->one();
+                $response["message"]='sorry something went wrong';
+                //return $verify;
+            }else{
+
+                
+                    $mobile=$data->mobile;
+                    $otp = $data->otp;
+                
+                 $verify = $model->find()->where(['contact'=>$mobile,'otp'=>$otp])->asArray()->one();
+                 
+                 if(empty($verify)){
+                
+                     $verify = 'fail';
+                     return $verify;
+                
+                 }else{
+
+                  return $verify;    
+                
+                 }
+                
+
+            }
     }
 
 
