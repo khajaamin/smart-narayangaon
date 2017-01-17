@@ -14,6 +14,9 @@ return [
     'controllerNamespace' => 'frontend\controllers',
   
     'components' => [
+        'SmsResponse' =>[
+            'class' => 'frontend\components\SmsResponse',
+        ],
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],

@@ -7,7 +7,8 @@ app.controller('AppCtrl', function($scope,AppService, $ionicModal,$ionicPopup, $
   //$scope.$on('$ionicView.enter', function(e) {
   //});
     
-
+//$scope.dt = new Date();
+// console.log(dt);
     $scope.IMG_BASE = IMG_BASE; 
     $scope.apps = []; 
     AppService.find({city:'Narayangaon',status:1}).then(
@@ -68,18 +69,19 @@ app.controller('AppCtrl', function($scope,AppService, $ionicModal,$ionicPopup, $
         }    
     }
 
-    $ionicModal.fromTemplateUrl('templates/review.html', {
-        scope: $scope,
-        animation: 'slide-in-up'
-      }).then(function(modal) {
-        $scope.modal = modal;
+  $scope.showFilterBar = function () {
+      filterBarInstance = $ionicFilterBar.show({
+        items: $scope.items,
+        update: function (filteredItems, filterText) {
+          $scope.items = filteredItems;
+          if (filterText) {
+            console.log(filterText);
+          }
+        }
       });
-    $scope.openModal = function(){
-      $scope.modal.show();
-    }
-    $scope.closeModal = function(){
-      $scope.modal.hide();
-    }
+    };
 
+
+    
   
 })

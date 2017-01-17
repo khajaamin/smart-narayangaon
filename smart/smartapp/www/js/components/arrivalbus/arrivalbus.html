@@ -1,0 +1,11 @@
+<div class="list">
+    <div ng-repeat="bus in arrivalbus">
+	    <a class="item item-avatar" href="#/app/arrivalbus/{{bus.destination}}">
+	      <img src="venkman.jpg">
+	       <div style="float: left;" class="padding">
+	       <h2>{{bus.destination}} - {{bus.route}} - {{bus.source}}</h2>
+	       <p style="float: left;">{{bus.arrival_time}}</p>
+	      </div>
+	    </a>
+    </div>
+</div>

@@ -5,18 +5,15 @@ app.component("signup",
 	$scope.title = $state.name; 
 	$scope.user = {}; 
 		$scope.msg = []; 
-
-		sessionService.set("LoggedInUser",{username:"sumit"});
-		sessionService.destroy("LoggedInUser");
-
-		console.log(sessionService.get("LoggedInUser"));
-
 		$scope.signup = function()
 		{
+
+		sessionService.set("mobileNo",$scope.user.mobile);
 		SignupService.signup($scope.user).then(
 				function(res){
 					console.log(res);
 					$scope.msg = res.data;
+					$state.go('app.otp');
 				},
 				function(error){
 					console.log(error);

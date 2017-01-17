@@ -1,7 +1,7 @@
 {
-  "name": "smartapp",
+  "name": "Smart Narayangaon",
   "version": "1.1.1",
-  "description": "smartApp: An Ionic project",
+  "description": "One Smart Step Toward Digital India",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^2.0.4",

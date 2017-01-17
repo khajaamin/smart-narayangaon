@@ -1,0 +1,24 @@
+		
+<form  name="signupFrm" ng-submit="otp(signupFrm)" novalidate>		
+    <div class="list">
+    <label class="item item-input item-floating-label item-stacked-label">
+      <span class="input-label">Mobile Number</span>
+      <input type="text" ng-model="user.mobile" name="mobile" required>
+      <span ng-if="signupFrm.$submitted|| signupFrm.mobile.$touched">
+      	<span class="error" ng-if="signupFrm.mobile.$error.required">
+      	Please Enter Your mobile
+      	</span>
+      </span>
+    </label>
+    <label class="item item-input item-floating-label">
+      <span class="input-label">OTP</span>
+      <input type="text" ng-model="user.otp" name="otp" placeholder="Enter OTP here" required>
+       <span ng-if="signupFrm.$submitted|| signupFrm.email.$touched">
+       	<span class="error" ng-if="signupFrm.email.$error.required">
+      	Please Enter OTP
+      	</span>
+      </span>
+    </label>
+  </div>
+      <button type="submit" id="signup-button1" class="button button-positive  button-block">Verify </button>
+    </form>

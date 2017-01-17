@@ -13,6 +13,7 @@ use common\models\Vendor;
 use yii\db\Expression;
 use common\models\VendorCategories;
 use common\models\Advertisements;
+use common\models\Ratings;
 
 /**
  * Site controller
@@ -47,7 +48,7 @@ public function behaviors()
     {
 
         $subcategory_id =Yii::$app->request->get('subcategory_id'); 
-        //$subcategory_id = 2;
+        
         $model = new Vendor();
         $vendorCategory=new VendorCategories();
         if(!empty($subcategory_id))
@@ -55,13 +56,14 @@ public function behaviors()
             $categories=$vendorCategory->find()->select('vendor_id')->distinct()->where(['category_id'=>$subcategory_id,'app_id'=>1])->asArray()->all();    
 
             for ($i=0; $i < sizeof($categories); $i++) { 
-                //echo $categories[$i]['vendor_id'];
+                
                   $data[]= $model->find()->select('*')->distinct()->where(['id'=>$categories[$i]['vendor_id'],'status'=>1])->asArray()->all();
             }
 
             return $data;
 
         }else{
+
             // $categories = $vendorCategory->find()->where(['category_id'=>2])->andWhere(['=','app_id', 1])->asArray()->all();
             // return $categories;
             // for ($i=0; $i < sizeof($categories); $i++) { 
@@ -77,12 +79,24 @@ public function behaviors()
 
         $id =Yii::$app->request->get('id'); 
         $model = new Vendor();
+        $new = new Ratings();
         if(!empty($id))
         { 
-            return $model->find()->where(['id'=>$id])->asArray()->one();    
+            $shop = $model->find()->where(['id'=>$id,'app_id'=>1])->asArray()->one();
+            $rate = $new->find()->where(['shop_id'=>$id,'app_id'=>1])->asArray()->one();
+            $final= $shop + $rate;
+            return $final;    
+
         }
         else{
-            return $model->find()->asArray()->one();    
+        $id=1;
+        $shop = $model->find()->where(['id'=>$id])->asArray()->one();
+       //$rate = $new->find()->where(['shop_id'=>$id])->count();
+        $rate = $new->find()->where(['shop_id'=>$id])->average('value');
+        
+        $final=  $rate;
+         return $final;    
+        //return $rate;
         }       
      }
 

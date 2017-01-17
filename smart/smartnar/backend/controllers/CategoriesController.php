@@ -89,8 +89,10 @@ class CategoriesController extends Controller
 
             $imageName = "cat_image_".rand();
             $model->file = UploadedFile::getInstance($model,'logo_image');
-            $model->file->saveAs('../images/categories/'.$imageName.'.'.$model->file->extension);
-            $model->logo_image = 'categories/'.$imageName.'.'.$model->file->extension;
+            if(!empty($model->file)){      
+                $model->file->saveAs('../images/categories/'.$imageName.'.'.$model->file->extension);
+                $model->logo_image = 'categories/'.$imageName.'.'.$model->file->extension;
+            }
             $model->save();
 
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.smartapp993123" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>smartApp</name>
+  <name>Smart Narayangaon</name>
   <description>
-        An Ionic Framework and Cordova project.
+        One Smart Step towards digital india
     </description>
-  <author email="you@example.com" href="http://example.com.com/">
-      Your Name Here
+  <author email="sdadvertisements@gmail.com" href="http://www.sdadvertisements.com/">
+      Smart and Digital
     </author>
   <content src="index.html"/>
   <access origin="*"/>
@@ -22,19 +22,15 @@
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>
-  <!-- for iOS -->
   <feature name="SocialSharing">
-  <param name="ios-package" value="SocialSharing" />
-</feature>
-<!-- for Android (you will find one in res/xml) -->
-<feature name="SocialSharing">
-  <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
-</feature>
-
-<!-- for Windows Phone -->
-<feature name="SocialSharing">
-  <param name="wp-package" value="SocialSharing"/>
-</feature>
+    <param name="ios-package" value="SocialSharing"/>
+  </feature>
+  <feature name="SocialSharing">
+    <param name="android-package" value="nl.xservices.plugins.SocialSharing"/>
+  </feature>
+  <feature name="SocialSharing">
+    <param name="wp-package" value="SocialSharing"/>
+  </feature>
   <platform name="android">
     <icon src="resources/android/icon/drawable-ldpi-icon.png" density="ldpi"/>
     <icon src="resources/android/icon/drawable-mdpi-icon.png" density="mdpi"/>

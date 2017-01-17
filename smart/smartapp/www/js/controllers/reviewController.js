@@ -1,5 +1,6 @@
-app.controller('ReviewController',function($scope,$http,$ionicModal) {
+app.controller('ReviewController',function($scope,$http,$ionicModal,$state,$ionicPopup,sessionService) {
 	$scope.rate=0;
+    $scope.id=$state.params.id;
     $scope.ratingsObject = {
         iconOn : 'ion-ios-star',
         iconOff : 'ion-ios-star-outline',
@@ -14,20 +15,25 @@ app.controller('ReviewController',function($scope,$http,$ionicModal) {
 
       $scope.ratingsCallback = function(rating) {
 
-        //console.log('Selected rating is : ', rating);
+        console.log('Selected rating is : ', rating);
         $scope.rate = rating;
       
       };
 
-    $scope.data=0;
-	  $scope.reset = function() {
-        $scope.data = 0;
-    };
-
     
 	  $scope.submitForm = function() {
-              $scope.data=$scope.rate;
-            //  console.log($scope.data);
+
+             //console.log($state.params.id);
+             var user = {};
+             user = sessionService.get("LoggedInUser")
+            //console.log("Hii ", user.id);
+              $scope.data={
+               'rate': $scope.rate,
+               'id':$state.params.id,
+                'user_id': user.id,             
+              };
+
+              console.log($scope.data);
             if ($scope.review.$valid) {             
             	$scope.message = $scope.data;
             	$http({
@@ -35,11 +41,22 @@ app.controller('ReviewController',function($scope,$http,$ionicModal) {
             		url : 'http://localhost/anwar/smart/smartnar/public_html/index.php?r=usersapi/rating',
             		data:$scope.data, 
             		headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-            	}).success(function(data) {		              		
-		            	
-		            alert(data.message);
-                $scope.closeModal();
-		            
+             	}).success(function(data) {		              		
+	   	                    
+            	
+                     var alertPopup = $ionicPopup.alert({
+                         title: 'Thank You!',
+                         template: data.message
+                       });
+
+                       alertPopup.then(function(res) {
+
+ $scope.closeModal();
+                            console.log('Thank you for not eating my delicious ice cream cone');
+                       });
+
+
+ 		            
           		});
             }
 

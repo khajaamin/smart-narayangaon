@@ -14,6 +14,7 @@ app.component("slider",
             initialSlide: 0,
             onInit: function(swiper){
                 $scope.swiper = swiper;
+                localValue:'swiper';
             },
             onSlideChangeEnd: function(swiper){
                 // ....

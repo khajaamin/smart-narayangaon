@@ -1,6 +1,6 @@
 <ion-side-menus enable-menu-with-back-views="false">
   <ion-side-menu-content>
-    <ion-nav-bar class="bar-stable">
+    <ion-nav-bar class="bar-positive">
       <ion-nav-back-button>
       </ion-nav-back-button>
 
@@ -12,7 +12,7 @@
     <ion-nav-view name="menuContent"></ion-nav-view>
   </ion-side-menu-content>
   <ion-side-menu side="left" type="overlay">
-    <ion-header-bar class="bar-stable">
+    <ion-header-bar class="bar-positive">
       <img ng-src="{{IMG_BASE}}{{apps[0].logo_image}}" height="30px" width="30px" title="{{apps[0].name}}">
         <!-- <img src="img/ionic.png" > -->
          <h1 class="title"> {{apps[0].name}}</h1>
@@ -38,7 +38,7 @@
           Special Offers
         </ion-item> -->
         <ion-item menu-close href="#/app/about">
-          About US
+          About Us
         </ion-item>
         <ion-item menu-close href="#/app/contact">
           Conatct Us

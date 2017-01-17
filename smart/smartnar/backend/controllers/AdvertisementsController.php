@@ -84,11 +84,11 @@ class AdvertisementsController extends Controller
              $imageName = "ad_image_".rand();
             
             $model->file = UploadedFile::getInstance($model,'image');
-            
+             if(!empty($model->file)){      
             $model->file->saveAs('../images/advertisements/'.$imageName.'.'.$model->file->extension);
             
             $model->image = 'advertisements/'.$imageName.'.'.$model->file->extension;
-            
+            }
             $model->save();
 
             return $this->redirect(['view', 'id' => $model->id]);
