@@ -7,14 +7,8 @@ app.component("offers",
 		$scope.offerdetails = []; 
 		OffersService.find().then(
 				function(res){
-					if(res.data=="fail"){
-						$scope.offerdetails = null;
-					}else{
-
-						$scope.offerdetails = res.data;						
-					}
-
-					
+				//	console.log(res.data);
+					$scope.offerdetails = res.data;
 				},
 				function(error){
 					console.log(error);

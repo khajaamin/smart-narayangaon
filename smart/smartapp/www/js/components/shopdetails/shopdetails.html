@@ -8,12 +8,7 @@
 
     <div class="item item-body">
       <!-- <img class="full-image" src="../img/nature.jpg"> -->
-      <span ng-if="!shopdetails.shop_image">
-        <img class="full-image" ng-src="{{IMG_BASE}}default_icon.png" title="{{shopdetails.shop_name}}" width="100%" style="width: 100%; height: 200px;">        
-      </span>
-      <span ng-if="shopdetails.shop_image">
-      <img class="full-image" ng-src="{{IMG_BASE}}{{shopdetails.shop_image}}" title="{{shopdetails.shop_name}}" style="width: 100%; height: 200px;">
-      </span>
+      <img class="full-image" ng-src="{{IMG_BASE}}{{shopdetails.shop_image}}" title="{{shopdetails.shop_name}}" width="100%">
       <p>
         {{shopdetails.description}}
       </p>
@@ -26,14 +21,10 @@
        Contact Us:{{shopdetails.mobile}}
        </p>
        <p>
-        <span ng-if="!shopdetails.weekly_off"> Weekly Off: No</span>
-         <span ng-if="shopdetails.weekly_off">Weekly Off:{{shopdetails.weekly_off}}</span>
+       Weekly Off:{{shopdetails.weekly_off}}
         </p>
         <p>
-        <span ng-if="!shopdetails.website"> Website: Not Available</span>
-        <span ng-if="shopdetails.website"> 
-            Website:<a href="{{shopdetails.website}}" target="_BLANK">{{shopdetails.website}}</a>
-        </span>
+       Website:<a href="{{shopdetails.website}}" target="_BLANK">{{shopdetails.website}}</a>
         </p>
         <p>
          Rating:{{shopdetails.value}}
