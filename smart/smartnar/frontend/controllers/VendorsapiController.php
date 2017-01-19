@@ -90,9 +90,9 @@ public function behaviors()
         if(!empty($id))
         { 
             $shop = $model->find()->where(['id'=>$id,'app_id'=>1])->asArray()->one();
-            $rate = $new->find()->where(['shop_id'=>$id,'app_id'=>1])->asArray()->one();
-            $final= $shop + $rate;
-            return $final;    
+            //$rate = $new->find()->where(['shop_id'=>$id])->asArray()->one();
+            //$final= $shop + $rate;
+            return $shop;    
 
         }
         else{
@@ -160,8 +160,14 @@ public function behaviors()
                 return $model->find()->asArray()->all();  
             }
             else{
-              
-                return $model->find()->where(['status'=>1,'app_id'=>1])->asArray()->all();   
+              $data = $model->find()->where(['status'=>1,'app_id'=>1])->asArray()->all();
+                if(!empty($data))
+                {
+                    return $data;
+                }else{
+                    return "fail";
+                }    
+            
             }       
 
      }
