@@ -1,8 +1,8 @@
-<div  ng-repeat="(key,val) in vendors"> 
+<div  ng-repeat="vendor in vendors"> 
    <div class="card">									
 		<div class="row">
 		    <div class="col col-60" ui-sref="app.specialoffers">
-		  		<div class="padding" >{{val[0].shop_name}}</div>
+		  		<div class="padding" >{{vendor}}</div>
 		    </div>
 		    <div class="col">
 				<a href="#/app/shopdetails/{{val[0].id}}" class="button button-block button-small  button-stable">View Details ></a>
@@ -21,7 +21,7 @@
 	  		</div>		  		
 	  		<div class="col col-50">
 	  			<button class="button button-block button button-small button-assertive
-	  		   icon ion-android-share-alt icon-right" ng-click="shareAnywhere()">
+	  		   icon ion-android-share-alt icon-right" ng-click="share(val)">
 				  Share
 				</button>
 	  		</div>

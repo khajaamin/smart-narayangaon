@@ -5,21 +5,33 @@ app.component("slider",
 
         $scope.IMG_BASE = IMG_BASE; 
 
-        $scope.sliderOptions = {
-            effect: 'slide',
+$scope.options = {
+
+ effect: 'slide',
             loop:true,
             autoplay:true,
-            speed: 5000,
+            speed: 2000,
             paginationHide: true,
             initialSlide: 0,
-            onInit: function(swiper){
-                $scope.swiper = swiper;
-                localValue:'swiper';
-            },
-            onSlideChangeEnd: function(swiper){
-                // ....
-            }
-        };
+}
+
+$scope.$on("$ionicSlides.sliderInitialized", function(event, data){
+  // data.slider is the instance of Swiper
+  $scope.slider = data.slider;
+});
+
+$scope.$on("$ionicSlides.slideChangeStart", function(event, data){
+  console.log('Slide change is beginning');
+});
+
+$scope.$on("$ionicSlides.slideChangeEnd", function(event, data){
+  // note: the indexes are 0-based
+  $scope.activeIndex = data.slider.activeIndex;
+  $scope.previousIndex = data.slider.previousIndex;
+});
+
+
+      
 
  	 $scope.sliders = [];
 

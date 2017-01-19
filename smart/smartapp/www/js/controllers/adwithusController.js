@@ -74,4 +74,22 @@ app.controller('AddCntrl',function($scope,$http,$state,sessionService,API_BASE,i
 //Map code
 
 
+console.log("in add with us");
+  var posOptions = {timeout: 10000, enableHighAccuracy: false};
+  $cordovaGeolocation
+    .getCurrentPosition(posOptions)
+    .then(function (position) {
+
+console.log("get lat");
+      var lat  = position.coords.latitude;
+      var long = position.coords.longitude;
+console.log(lat,long);
+    }, function(err) {
+
+console.log("location error");
+console.log(err);
+      // error
+    });
+
+
 });
