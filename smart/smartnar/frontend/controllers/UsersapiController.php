@@ -9,6 +9,8 @@ use yii\web\Response;
 use common\models\Ratings; 
 use common\models\Users;
 use yii\db\Expression;
+use linslin\yii2\curl;
+use yii\web\JsExpression;
 
 /**
  * Site controller
@@ -16,7 +18,7 @@ use yii\db\Expression;
 class UsersapiController extends ActiveController
 {
     public $modelClass = "common\models\Users";
-
+    //public enableCsrfValidation = false;
 
     public function behaviors()
     {
@@ -40,14 +42,14 @@ class UsersapiController extends ActiveController
 
     public function actionSignup()
     {
+       
         $model = new Users();
 
          $data =  json_decode(utf8_encode(file_get_contents("php://input")), false);
          if(empty($data)){
-                $mob = 7385455311;
-                $random = 87659;
-                $verify = Yii::$app->SmsResponse->getResponse($mob,$random);
-                //$response["message"]='sorry something went wrong';
+
+                $response["message"]="Something Went wrong";
+                return $response;
                      
             }else{
             
@@ -65,10 +67,10 @@ class UsersapiController extends ActiveController
                         
                         
                         $model->save(false);
-                        // {
-                        //     $verify = Yii::$app->SmsResponse->getResponse($mob,$random);
+                        {
+                                        $verify = Yii::$app->SmsResponse->getResponse($mob,$random);
                             
-                        // }                    
+                        }                    
 
                         $response["message"]="Thank You for Register We will Contact you very soon";
                       
@@ -87,6 +89,7 @@ class UsersapiController extends ActiveController
 
             }
     }
+
 
     public function actionRating()
     {

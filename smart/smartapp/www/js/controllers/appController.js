@@ -1,4 +1,4 @@
-app.controller('AppCtrl', function($scope,AppService, $ionicModal,$ionicPopup, $timeout ,$http,hexify,IMG_BASE) {
+app.controller('AppCtrl', function($scope,AppService, $ionicModal,$ionicPopup, $timeout ,$http,hexify,IMG_BASE,$ionicLoading) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -9,6 +9,15 @@ app.controller('AppCtrl', function($scope,AppService, $ionicModal,$ionicPopup, $
     
 //$scope.dt = new Date();
 // console.log(dt);
+$scope.show = function() {
+    $ionicLoading.show({
+      template: '<p>Loading...</p><ion-spinner></ion-spinner>'
+    });
+  };
+
+  $scope.hide = function(){
+        $ionicLoading.hide();
+  };
     $scope.IMG_BASE = IMG_BASE; 
     $scope.apps = []; 
     AppService.find({city:'Narayangaon',status:1}).then(

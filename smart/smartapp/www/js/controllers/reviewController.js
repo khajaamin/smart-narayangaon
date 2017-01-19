@@ -38,7 +38,7 @@ app.controller('ReviewController',function($scope,$http,$ionicModal,$state,$ioni
             	$scope.message = $scope.data;
             	$http({
             		method: 'POST',
-            		url : 'http://localhost/anwar/smart/smartnar/public_html/index.php?r=usersapi/rating',
+            		url : 'http://www.smartnarayangaon.com/index.php?r=usersapi/rating',
             		data:$scope.data, 
             		headers: {'Content-Type': 'application/x-www-form-urlencoded'},
              	}).success(function(data) {		              		

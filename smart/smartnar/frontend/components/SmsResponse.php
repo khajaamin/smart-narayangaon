@@ -13,22 +13,24 @@ class SmsResponse extends Component
 {
 	public function getResponse($phone,$msg)
 	{
-		$url = 'http://www.eazy2sms.in/SMS.aspx';
+
+		$encodeMsg = urlencode("Dear User Your OTP is ".$msg.", Thank You. www.sdadvertisements.com");
+		$url ="http://www.eazy2sms.in/SMS.aspx?Userid=anwar123&Password=anwar@123&Mobile=".$phone."&Message=".$encodeMsg."&Type=1&TempId=81359";
 
 		$options = array(
-	        'Userid' => "anwar123",
-	        'Password' => "anwar@123",
-	        'Mobile' => "$phone",
-	        'Message'=> "Dear User Your OTP is $msg, Thank You. www.sdadvertisements.com",
-			'Type' => 1,
-			 'TempId'=> 81359				        
+			CURLOPT_RETURNTRANSFER => true,   // return web page
+	        CURLOPT_HEADER         => false,  // don't return headers
+	        CURLOPT_FOLLOWLOCATION => true,   // follow redirects
+	        CURLOPT_MAXREDIRS      => 10,     // stop after 10 redirects
+	        CURLOPT_ENCODING       => "",     // handle compressed
+	        CURLOPT_USERAGENT      => "test", // name of client
+	        CURLOPT_AUTOREFERER    => true,   // set referrer on redirect
+	        CURLOPT_CONNECTTIMEOUT => 120,    // time-out on connect
+	        CURLOPT_TIMEOUT        => 120,    // time-out on response				        
 	    ); 
-
-	    $ch = curl_init();
-
-	    curl_setopt($ch, CURLOPT_URL,$url);
-	    curl_setopt($ch, CURLOPT_POST, count($options));
-	    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($options));
+			 $ch = curl_init($url);
+           
+            curl_setopt_array($ch , $options);
 
 	    $content  = curl_exec($ch);
 

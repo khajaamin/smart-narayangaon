@@ -14,6 +14,7 @@ return [
     'controllerNamespace' => 'frontend\controllers',
   
     'components' => [
+    
         'SmsResponse' =>[
             'class' => 'frontend\components\SmsResponse',
         ],

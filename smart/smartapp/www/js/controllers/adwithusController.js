@@ -1,5 +1,5 @@
 
-app.controller('AddCntrl',function($scope,$http,$state,sessionService,API_BASE,ionicTimePicker) {
+app.controller('AddCntrl',function($scope,$http,$state,sessionService,API_BASE,ionicTimePicker,$cordovaGeolocation,$ionicModal,$ionicLoading) {
 
     $scope.openTimePicker1 = function() {
         var ipObj1 = {
@@ -12,7 +12,7 @@ app.controller('AddCntrl',function($scope,$http,$state,sessionService,API_BASE,i
                 }
             },
             inputTime: 8,
-            format: 24,
+            format: 12,
             setLabel: 'Set'
         };
         if (ionicTimePicker)
@@ -32,7 +32,7 @@ app.controller('AddCntrl',function($scope,$http,$state,sessionService,API_BASE,i
                 }
             },
             inputTime: 8,
-            format: 24,
+            format: 12,
             setLabel: 'Set'
         };
         if (ionicTimePicker)
@@ -55,7 +55,7 @@ app.controller('AddCntrl',function($scope,$http,$state,sessionService,API_BASE,i
             	//$scope.message = $scope.data;
             	$http({
             		method: 'POST',
-            		url : 'http://localhost/anwar/smart/smartnar/public_html/index.php?r=vendorsapi/create-new',
+            		url : 'http://www.smartnarayangaon.com/index.php?r=vendorsapi/create-new',
             		data:$scope.data, 
             		headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             	}).success(function(data) {		              		
@@ -69,5 +69,9 @@ app.controller('AddCntrl',function($scope,$http,$state,sessionService,API_BASE,i
             }
 
         };
+
+
+//Map code
+
 
 });

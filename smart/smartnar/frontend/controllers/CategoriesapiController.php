@@ -46,7 +46,7 @@ public function behaviors()
         $model = new Categories();
       	if(!empty($parent_id))
     	{ 
-	    	return $model->find()->where(['parent_id'=>$parent_id])->asArray()->all();	
+	    	return $model->find()->where(['parent_id'=>$parent_id,'app_id'=>1])->asArray()->all();	
     	}
     	else{
 	    	return $model->find()->where(['OR',
@@ -61,10 +61,10 @@ public function behaviors()
         $model = new Sliders();
         if(!empty($parent_id))
         { 
-            return $model->find()->asArray()->all();  
+            return $model->find()->where(['app_id'=>1])->asArray()->all();  
         }
         else{
-            return $model->find()->asArray()->all();   
+            return $model->find()->where(['app_id'=>1])->asArray()->all();   
         }       
      }
 

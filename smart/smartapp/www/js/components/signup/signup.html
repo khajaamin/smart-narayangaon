@@ -1,5 +1,5 @@
 <form  name="signupFrm" ng-submit="signup(signupFrm)" novalidate>		
-    <div class="list">
+  <div class="list">
     <label class="item item-input item-floating-label item-stacked-label">
       <span class="input-label">First Name</span>
       <input type="text" ng-model="user.name" name="name"  placeholder="Full Name" required>
@@ -11,12 +11,8 @@
     </label>
     <label class="item item-input item-floating-label">
       <span class="input-label">Email</span>
-      <input type="email" ng-model="user.email" name="email" placeholder="Email" required>
-       <span ng-if="signupFrm.$submitted|| signupFrm.email.$touched">
-       	<span class="error" ng-if="signupFrm.email.$error.required">
-      	Please Enter Your Email
-      	</span>
-      </span>
+      <input type="email" ng-model="user.email" name="email" placeholder="Email">
+       	<span class="error" ng-show="signupFrm.email.$error.email">Invalid email address.</span>      
     </label>
     <label class="item item-input item-floating-label">
       <span class="input-label">Mobile No</span>
@@ -29,4 +25,4 @@
     </label>
   </div>
       <button type="submit" id="signup-button1" class="button button-positive  button-block">Sign up Using OTP</button>
-    </form>
+</form>
