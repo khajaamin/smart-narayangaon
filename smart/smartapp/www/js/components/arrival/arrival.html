@@ -5,7 +5,7 @@
     </label>
     <div ng-repeat="bus in arrival | filter:search">
 	    <a class="item item-avatar" href="#/app/arrivalbus/{{bus.destination}}">
-	      <img src="venkman.jpg">
+	      <img src="{{IMG_BASE}}bus.png" style="height: 50px; width: 50px;">
 	       <div style="float: left;" class="padding">
 	       <h2>{{bus.destination}}</h2>
 	      </div>

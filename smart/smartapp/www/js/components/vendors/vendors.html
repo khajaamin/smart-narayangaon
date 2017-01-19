@@ -1,8 +1,8 @@
-<div  ng-repeat="vendor in vendors"> 
+<div  ng-repeat="(key,val) in vendors">
    <div class="card">									
 		<div class="row">
 		    <div class="col col-60" ui-sref="app.specialoffers">
-		  		<div class="padding" >{{vendor}}</div>
+		  		<div class="padding" >{{val[0].shop_name}}</div>
 		    </div>
 		    <div class="col">
 				<a href="#/app/shopdetails/{{val[0].id}}" class="button button-block button-small  button-stable">View Details ></a>
@@ -10,7 +10,7 @@
 		</div>					
 		<div class="item item-text-wrap" id="page-list-item-container2" style="">
 	      	<p>Address: {{val[0].shop_address}}</p>
-			<p>Time: {{val[0].time_from}} AM to {{val[0].time_to}} PM</p> 
+			<p>Time: {{val[0].time_from}} to {{val[0].time_to}} PM</p> 
 			<p>Contact Us: {{val[0].mobile}}</p>
 			<p>Weekly Off: {{val[0].weekly_off}}</p>
 		</div>					
