@@ -115,16 +115,6 @@ $location.path("app/signup")
 
     }
   })
-  .state('app.404', {
-    url: '/404',
-    accessRule:"@",
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/404.html',
-      }
-
-    }
-  })
   .state('app.busdetail', {
     url: '/busdetail/:name',
     accessRule:"@",

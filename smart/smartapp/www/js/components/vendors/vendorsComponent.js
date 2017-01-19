@@ -5,16 +5,17 @@ app.component("vendors",
 		$scope.title = $state.name; 
 		$scope.IMG_BASE = IMG_BASE; 
 		$scope.vendors = []; 
-		
+		$cordovaSocialSharing
+    .share(message, subject, file, link) // Share via native share sheet
+    .then(function(result) {
+      // Success!
+    }, function(err) {
+      // An error occured. Show a message to the user
+    });
 		VendorsService.find({category_id:$state.params.parent_id,subcategory_id:$state.params.id}).then(
 				function(res){
 					console.log(res.data);
-					if(res.data=="fail"){
-						$scope.vendors = null;
-					}else{
-						$scope.vendors = res.data;	
-					}
-					
+					$scope.vendors = res.data;
 				},
 				function(error){
 					console.log(error);

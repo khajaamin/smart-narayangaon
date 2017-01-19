@@ -11,7 +11,7 @@ app.controller('AppCtrl', function($scope,AppService, $ionicModal,$ionicPopup, $
 // console.log(dt);
 $scope.show = function() {
     $ionicLoading.show({
-      template: '<p>Loading...</p> <ion-spinner icon="ripple" class="spinner-assertive"></ion-spinner>'
+      template: '<p>Loading...</p><ion-spinner></ion-spinner>'
     });
   };
 
