@@ -48,10 +48,10 @@ public function behaviors()
         $model = new Advertisements();
         if(!empty($parent_id))
         { 
-            return $model->find()->asArray()->all();  
+            return $model->find()->where(['app_id'=>1])->asArray()->all();  
         }
         else{
-            return $model->find()->asArray()->all();   
+            return $model->find()->where(['app_id'=>1])->asArray()->all();   
         } 	    
      }
 

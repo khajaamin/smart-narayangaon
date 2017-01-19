@@ -2,6 +2,16 @@
 .error{
 	color:red;
 }
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+.scroll {
+  height: 100%;
+}
+
 a{
 	text-decoration: none;
 	text-align: center;
@@ -70,4 +80,7 @@ body {
 .ionic_timepicker_popup .button_set, .ionic_timepicker_popup .button_close {
  background-color: #FF3374 !important;
 
+}
+.rate-but{
+  background-color: #FF3374 !important;
 }

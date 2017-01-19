@@ -43,8 +43,8 @@ $location.path("app/signup")
   });
 })
 .constant({
-  API_BASE:"http://localhost/anwar/smart/smartnar/public_html/index.php?r=",
-  IMG_BASE:"http://localhost/anwar/smart/smartnar/public_html/images/",
+  API_BASE:"http://www.smartnarayangaon.com/index.php?r=",
+  IMG_BASE:"http://www.smartnarayangaon.com/images/",
 })
 .config(function($stateProvider, $urlRouterProvider) {
  // $httpProvider.defaults.useXDomain = true;

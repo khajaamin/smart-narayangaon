@@ -3,21 +3,15 @@
     <div ng-controller="ReviewController">
       <form name="review" ng-submit="submitForm()" novalidate>
         <ion-header-bar class="bar-positive fix-buttons">
-          <a class="button" ng-click="closeModal()">Cancel</a>
+          
           <h1 class="title">Rate Us</h1>
+          <a class="button button-positive rate-but" ng-click="closeModal()">Cancel</a>
         </ion-header-bar>
-        <ion-content has-bouncing="true">      
+        <ion-content has-bouncing="true"> 
+          <div class="padding"></div>     
           <ionic-ratings ratingsobj='ratingsObject' index="0"></ionic-ratings>
-          <input type="text" name="id" ng-model="id">
-<!--           
-<div class="row description-row">
-            
-            <div class="col">
-
-                <textarea placeholder="Review" rows="5" ng-model="data.review" name="review" lose-focus-on-return ></textarea>
-
-            </div>
-          </div> -->
+          <input type="hidden" name="id" ng-model="id">
+           <div class="padding"></div>     
           <center>
             <input type="submit" class="button button-balanced" value="Submit" name="submit">   
           </center>       

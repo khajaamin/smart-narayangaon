@@ -1,0 +1,12 @@
+<ion-modal-view>
+    <ion-header-bar align-title="center" class="common-header">
+        <h1 class="title">Add address</h1>
+        <button class="button button-icon icon ion-close" ng-click="closemapModal()"></button>
+    </ion-header-bar>
+    <ion-content>
+        <div id="map" style="width: 100%;height: 100%;" data-tap-disabled="true"></div>
+    </ion-content>
+    <ion-footer-bar class="bar-dark">
+        <a ng-click="centerOnMe()" class="button button-icon icon ion-navigate">Find Me</a>
+    </ion-footer-bar>
+</ion-modal-view>
