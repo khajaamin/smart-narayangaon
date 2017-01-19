@@ -48,7 +48,7 @@ public function behaviors()
     {
 
         $subcategory_id =Yii::$app->request->get('subcategory_id'); 
-        
+        $data =  array();
         $model = new Vendor();
         $vendorCategory=new VendorCategories();
         if(!empty($subcategory_id))
@@ -60,7 +60,14 @@ public function behaviors()
                   $data[]= $model->find()->select('*')->distinct()->where(['id'=>$categories[$i]['vendor_id'],'status'=>1])->asArray()->all();
             }
 
-            return $data;
+            if(!empty($data)){
+                return $data;
+            }else{
+                return "fail";
+            }
+
+            
+
 
         }else{
 

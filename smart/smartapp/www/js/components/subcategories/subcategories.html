@@ -3,7 +3,12 @@
 <div class = "row unlimited-items">
 	<div class = "col"  ng-repeat="category in categories"> 		
 		<a href="#/app/vendors/{{category.id}}">
-			<img  ng-src="{{IMG_BASE}}{{category.logo_image}}" title="{{category.category_name}}" class="icon-img">			
+			<span ng-if="category.logo_image ==null">
+					<img  ng-src="{{IMG_BASE}}default_icon.png" title="default" class="icon-img" style="width: 50px; height:50px;">
+				</span>
+			<span ng-if="category.logo_image !=null">
+			<img  ng-src="{{IMG_BASE}}{{category.logo_image}}" title="{{category.category_name}}" class="icon-img" style="width: 50px; height:50px;">			
+			</span>
 			<center>
 			<p class="help-block icon-text">{{category.category_name}}</p>
 			</center>
