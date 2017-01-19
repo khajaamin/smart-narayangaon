@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+    <link rel="manifest" href="manifest.json">
+
+    <!-- un-comment this code to enable service worker
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(() => console.log('service worker installed'))
+          .catch(err => console.log('Error', err));
+      }
+    </script>-->
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+   <!--  <script src="js/SocialSharing.js"></script> -->
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <!-- ionic search Bar -->
+     <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/controllers/appController.js"></script>
+    <script src="js/controllers/adwithusController.js"></script>
+    <script src="js/controllers/reviewController.js"></script>
+    <script type="text/javascript" src="js/components/slider/sliderComponent.js"></script>
+    <script type="text/javascript" src="js/components/special-offers/specialOffersComponent.js"></script>
+    <script type="text/javascript" src="js/components/subcategories/subcategoriesComponent.js"></script>
+    <script type="text/javascript" src="js/components/vendors/vendorsComponent.js"></script>
+    <script type="text/javascript" src="js/components/categories/categoriesComponent.js"></script>
+    <script type="text/javascript" src="js/components/shopdetails/shopdetailsComponent.js"></script>
+    <script type="text/javascript" src="js/components/signup/signupComponent.js"></script>
+    <script type="text/javascript" src="js/components/buses/busesComponent.js"></script>
+    <script type="text/javascript" src="js/components/busdetails/busdetailComponent.js"></script>
+    <script type="text/javascript" src="js/components/offerdetails/offerdetailsComponent.js"></script>
+    <script type="text/javascript" src="js/components/otp/otpComponent.js"></script>
+    <script type="text/javascript" src="js/components/departure/departureComponent.js"></script>
+    <script type="text/javascript" src="js/components/arrival/arrivalComponent.js"></script>
+    <script type="text/javascript" src="js/components/arrivalbus/arrivalbusComponent.js"></script>
+    <script type="text/javascript" src="js/services/appService.js"></script>
+    <script type="text/javascript" src="js/services/arrivalbusService.js"></script>
+    <script type="text/javascript" src="js/services/categoriesService.js"></script>
+    <script type="text/javascript" src="js/services/sliderService.js"></script>
+    <script type="text/javascript" src="js/services/vendorsService.js"></script>
+    <script type="text/javascript" src="js/services/shopdetailsService.js"></script>
+    <script type="text/javascript" src="js/services/specialofferService.js"></script>
+    <script type="text/javascript" src="js/services/signupService.js"></script>
+    <script type="text/javascript" src="js/services/offersService.js"></script>
+    <script type="text/javascript" src="js/services/busesService.js"></script>
+    <script type="text/javascript" src="js/services/busdetailsService.js"></script>
+    <script type="text/javascript" src="js/services/otpService.js"></script>
+    <script type="text/javascript" src="js/services/arrivaldetailService.js"></script>
+    <script src="js/controllers/itemController.js"></script>
+    <script src="js/controllers/shopDetailsController.js"></script>
+    <script src="js/controllers/loginController.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/ionic-ratings.js"></script>
+    <script src="lib/ionic-timepicker/dist/ionic-timepicker.bundle.min.js"></script>
+  </head>
+<!--    platform-android -->
+  <body ng-app="starter" class="platform-android">
+  
+    <ion-nav-view class="bar-balanced">
+      
+    </ion-nav-view>
+    
+  </body>
+</html>
