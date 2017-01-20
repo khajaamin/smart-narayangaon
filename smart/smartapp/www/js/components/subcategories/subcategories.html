@@ -1,13 +1,14 @@
-
-
-<div class = "row unlimited-items">
-	<div class = "col"  ng-repeat="category in categories"> 		
-		<a href="#/app/vendors/{{category.id}}">
-			<img  ng-src="{{IMG_BASE}}{{category.logo_image}}" title="{{category.category_name}}" class="icon-img">			
-			<center>
-			<p class="help-block icon-text">{{category.category_name}}</p>
-			</center>
-		</a>
-	</div>
+<ion-content>
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
+    </ion-refresher>
+</ion-content>
+<div class="row unlimited-items">
+    <div class="col" ng-repeat="category in categories">
+        <a href="#/app/vendors/{{category.id}}">
+            <img ng-src="{{IMG_BASE}}{{category.logo_image}}" title="{{category.category_name}}" class="icon-img">
+            <center>
+                <p class="help-block icon-text">{{category.category_name}}</p>
+            </center>
+        </a>
+    </div>
 </div>
-		
