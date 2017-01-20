@@ -32,7 +32,7 @@ class Buses extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['app_id', 'source', 'destination', 'arrival_time', 'dept_time', 'route', 'status'], 'required'],
+            [['app_id', 'source', 'destination', 'status'], 'required'],
             [['app_id', 'status'], 'integer'],
             [['arrival_time', 'dept_time'], 'safe'],
             [['source', 'destination', 'route'], 'string', 'max' => 255],

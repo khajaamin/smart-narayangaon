@@ -72,6 +72,11 @@ body {
   color: #0077B5;
   font-size: 25px;
 }
+.whatsapp{
+  color: #34af23;
+
+}
+
 .ionic_timepicker_popup .heading {
 
   background-color: #FF3374 !important;
@@ -83,4 +88,20 @@ body {
 }
 .rate-but{
   background-color: #FF3374 !important;
+}
+.no-data{
+  text-align: center;
+  margin-top:100px;
+}
+.no-data h4{
+  color: #FF3374 !important;
+}
+.signup-head {
+
+  text-align: center;
+  margin-top: 100px;
+
+}
+.signup-head h4{
+  color: #387EF5;
 }

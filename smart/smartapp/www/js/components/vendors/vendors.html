@@ -1,29 +1,41 @@
-<div ng-repeat="(key,val) in vendors">
-    <div class="card">
-        <div class="row">
-            <div class="col col-60" ui-sref="app.specialoffers">
-                <div class="padding">{{val[0].shop_name}}</div>
-            </div>
-            <div class="col">
-                <a href="#/app/shopdetails/{{val[0].id}}" class="button button-block button-small  button-stable">View Details ></a>
-            </div>
-        </div>
-        <div class="item item-text-wrap" id="page-list-item-container2" style="">
-            <p>Address: {{val[0].shop_address}}</p>
-            <p>Time: {{val[0].time_from}} to {{val[0].time_to}} PM</p>
-            <p>Contact Us: {{val[0].mobile}}</p>
-            <p>Weekly Off: {{val[0].weekly_off}}</p>
-        </div>
-        <div class="row">
-            <div class="col col-50">
-                <a ng-href="tel:{{val[0].mobile}}" class="button button-block button button-small button-balanced icon ion-android-call icon-right">Call Us</a>
-            </div>
-            <div class="col col-50">
-                <button class="button button-block button button-small button-assertive
-	  		   icon ion-android-share-alt icon-right" ng-click="share(val)">
-				  Share
-				</button>
-            </div>
-        </div>
-    </div>
+<div ng-if="!vendors">
+	<div class="no-data">
+		<h4>No Data Available</h4>
+	</div>
+</div>	
+<div ng-show="!isEmpty(vendors)">
+	<div ng-repeat="(key,val) in vendors">
+	    <div class="card">
+	        <div class="row">
+	            <div class="col col-60" ui-sref="app.specialoffers">
+	                <div class="padding">{{val[0].shop_name}}</div>
+	            </div>
+	            <div class="col">
+	                <a href="#/app/shopdetails/{{val[0].id}}" class="button button-block button-small  button-stable">View Details ></a>
+	            </div>
+	        </div>
+	        <div class="item item-text-wrap" id="page-list-item-container2" style="">
+	            <p>Address: {{val[0].shop_address}}</p>
+	            <p>Time: {{val[0].time_from}} to {{val[0].time_to}} </p>
+	            <p>Contact Us: {{val[0].mobile}}</p>
+	            <span ng-if="isEmpty(val[0].weekly_off)">
+	            	<p>Weekly Off: Never</p>	
+	            </span>
+	            <span ng-if="!isEmpty(val[0].weekly_off)">
+	            <p>Weekly Off: {{val[0].weekly_off}}</p>
+				</span>
+	        </div>
+	        <div class="row">
+	            <div class="col col-50">
+	                <a ng-href="tel:{{val[0].mobile}}" class="button button-block button button-small button-balanced icon ion-android-call icon-right">Call Us</a>
+	            </div>
+	            <div class="col col-50">
+	                <button class="button button-block button button-small button-assertive
+		  		   icon ion-android-share-alt icon-right" ng-click="share(val)">
+					  Share
+					</button>
+	            </div>
+	        </div>
+	    </div>
+	</div>
 </div>
