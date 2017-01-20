@@ -5,10 +5,26 @@ app.component("offers",
 		$scope.title = $state.name; 
 		$scope.IMG_BASE = IMG_BASE; 
 		$scope.offerdetails = []; 
+
+
+		 $scope.isEmpty = function (obj) {
+			for (var i in obj) if (obj.hasOwnProperty(i)) return false;
+			return true;
+		};
+
+
 		OffersService.find().then(
 				function(res){
-				//	console.log(res.data);
-					$scope.offerdetails = res.data;
+					if(res.data.length==0){
+
+               			$scope.offerdetails = null;
+               			console.log($scope.offerdetails);
+               	
+               		}else{
+               			$scope.offerdetails = res.data;	
+               		}
+
+
 				},
 				function(error){
 					console.log(error);

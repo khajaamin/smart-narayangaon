@@ -60,23 +60,11 @@ public function behaviors()
                   $data[]= $model->find()->select('*')->distinct()->where(['id'=>$categories[$i]['vendor_id'],'status'=>1])->asArray()->all();
             }
 
-            if(!empty($data)){
                 return $data;
-            }else{
-                return "fail";
-            }
-
-            
-
 
         }else{
 
-            // $categories = $vendorCategory->find()->where(['category_id'=>2])->andWhere(['=','app_id', 1])->asArray()->all();
-            // return $categories;
-            // for ($i=0; $i < sizeof($categories); $i++) { 
-            //    echo $categories[$i]['category_id']."\n";               
-            //    return $model->find()->where(['id'=>$categories[$i]['vendor_id']])->andWhere(['=','status',1])->asArray()->all();
-            // }
+                return $data;
 
         }
 
@@ -87,23 +75,17 @@ public function behaviors()
         $id =Yii::$app->request->get('id'); 
         $model = new Vendor();
         $new = new Ratings();
+        $shop = '';
         if(!empty($id))
         { 
             $shop = $model->find()->where(['id'=>$id,'app_id'=>1])->asArray()->one();
-            //$rate = $new->find()->where(['shop_id'=>$id])->asArray()->one();
-            //$final= $shop + $rate;
             return $shop;    
 
         }
         else{
-        $id=1;
-        $shop = $model->find()->where(['id'=>$id])->asArray()->one();
-       //$rate = $new->find()->where(['shop_id'=>$id])->count();
-        $rate = $new->find()->where(['shop_id'=>$id])->average('value');
-        
-        $final=  $rate;
-         return $final;    
-        //return $rate;
+
+        return $shop;
+
         }       
      }
 
@@ -121,11 +103,13 @@ public function behaviors()
      }
      public function actionCreateNew()
      {
-            //$data=array();
+      
         $model = new Vendor();
             $data =  json_decode(utf8_encode(file_get_contents("php://input")), false);
             if(empty($data)){
-                echo 'bye';
+                
+
+
             }else{
                 $model->date=date('Y-m-d');
                 $model->shop_name=$data->shopname;
@@ -155,19 +139,15 @@ public function behaviors()
      public function actionOffersDetails()
      {
             $model = new Advertisements();
+            $data = array(); 
             if(!empty($parent_id))
             { 
                 return $model->find()->asArray()->all();  
             }
             else{
               $data = $model->find()->where(['status'=>1,'app_id'=>1])->asArray()->all();
-                if(!empty($data))
-                {
-                    return $data;
-                }else{
-                    return "fail";
-                }    
-            
+                
+                return $data;
             }       
 
      }

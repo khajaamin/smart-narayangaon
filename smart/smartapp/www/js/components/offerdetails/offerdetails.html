@@ -1,16 +1,25 @@
-<div class = "row">
-   <div class = "col" ng-repeat="offers in offerdetails">
-	   	<div class="list card">
-		 <div class="item item-avatar">
-		    <img src="{{IMG_BASE}}sale.png" height="250px" style="height: 250px; width: 300px;">
-		    <h2>{{offers.shop_name}}</h2>
-		    <p>{{offers.owner_name}}</p>
-		  </div>		 
-		  <div class="item item-image">
-		    <img src="{{IMG_BASE}}{{offers.image}}">
-		  </div>
-		</div>
-   </div>
+<div ng-if="!offerdetails">
+	<div class="no-data">
+		<h4>Ooop's Currently No Offer's Available</h4>
+	</div>
+</div>	
+<div ng-if="!isEmpty(offerdetails)">
+	<div class = "row">
+	   <div class = "col" ng-repeat="offers in offerdetails">
+		   	<div ng-if="offerdetails">
+			   	<div class="list card">
+				 <div class="item item-avatar">		    
+				    <img src="{{IMG_BASE}}sale.png" height="250px" style="height: 250px; width: 300px;">
+				    <h2>{{offers.shop_name}}</h2>
+				    <p>{{offers.owner_name}}</p>
+				  </div>		 
+				  <div class="item item-image">
+				    <img src="{{IMG_BASE}}{{offers.image}}">
+				  </div>
+				</div>
+			</div>
+	   </div>
+	</div>
 </div>
 			
 			
