@@ -8,8 +8,8 @@
 	   <div class = "col" ng-repeat="offers in offerdetails">
 		   	<div ng-if="offerdetails">
 			   	<div class="list card">
-				 <div class="item item-avatar">		    
-				    <img src="{{IMG_BASE}}sale.png" height="250px" style="height: 250px; width: 300px;">
+				 <div class="item item-avatar">	 	    
+				    <img image-lazy-src="{{IMG_BASE}}sale.png"  lazy-scroll-resize="true" image-lazy-loader="lines" height="250px" style="height: 250px; width: 300px;">
 				    <h2>{{offers.shop_name}}</h2>
 				    <p>{{offers.owner_name}}</p>
 				  </div>		 

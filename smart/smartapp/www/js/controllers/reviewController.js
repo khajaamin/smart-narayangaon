@@ -6,7 +6,7 @@ app.controller('ReviewController',function($scope,$http,$ionicModal,$state,$ioni
         iconOff : 'ion-ios-star-outline',
         iconOnColor: 'rgb(200, 200, 100)',
         iconOffColor:  'rgb(200, 100, 100)',
-        rating:  2,
+        rating:  0,
         minRating:1,
         callback: function(rating) {
           $scope.ratingsCallback(rating);
@@ -20,7 +20,6 @@ app.controller('ReviewController',function($scope,$http,$ionicModal,$state,$ioni
       
       };
 
-    
 	  $scope.submitForm = function() {
 
              //console.log($state.params.id);
@@ -38,12 +37,14 @@ app.controller('ReviewController',function($scope,$http,$ionicModal,$state,$ioni
             	$scope.message = $scope.data;
             	$http({
             		method: 'POST',
+                 //http://www.smartnarayangaon.com/index.php?
+                //http://localhost/anwar/smart-narayangaon/smart/smartnar/public_html/index.php?r=
             		url : 'http://www.smartnarayangaon.com/index.php?r=usersapi/rating',
             		data:$scope.data, 
             		headers: {'Content-Type': 'application/x-www-form-urlencoded'},
              	}).success(function(data) {		              		
 	   	                    
-            	
+      
                      var alertPopup = $ionicPopup.alert({
                          title: 'Thank You!',
                          template: data.message
@@ -51,7 +52,9 @@ app.controller('ReviewController',function($scope,$http,$ionicModal,$state,$ioni
 
                        alertPopup.then(function(res) {
 
- $scope.closeModal();
+                 $scope.closeModal();
+                  $state.reload();
+//                    $window.location.reload();
                             console.log('Thank you for not eating my delicious ice cream cone');
                        });
 

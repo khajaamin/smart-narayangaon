@@ -79,14 +79,22 @@ public function behaviors()
         if(!empty($id))
         { 
             $shop = $model->find()->where(['id'=>$id,'app_id'=>1])->asArray()->one();
-            return $shop;    
-
+            $shop['ratings'] = $model->ratingsAvg($id);    
+           // $shop['category'] = $model->categoryDetails($id); 
+            return $shop; 
         }
         else{
 
-        return $shop;
 
         }       
+     }
+     public function actionShopImage(){
+        $id =Yii::$app->request->get('sub_category_id');
+        $model = new Categories();
+        if(!empty($id)){
+            $image = $model->find()->where(['id'=>$id,'app_id'=>1])->asArray()->one();
+            return $image;
+        }
      }
 
     public function actionSlider()
