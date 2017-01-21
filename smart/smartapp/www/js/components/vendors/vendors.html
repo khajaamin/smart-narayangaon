@@ -11,7 +11,7 @@
 	                <div class="padding">{{val[0].shop_name}}</div>
 	            </div>
 	            <div class="col">
-	                <a href="#/app/shopdetails/{{val[0].id}}" class="button button-block button-small  button-stable">View Details ></a>
+	                <a href="#/app/shopdetails/{{val[0].id}}/{{sub_category_id}}" class="button button-block button-small  button-stable">View Details ></a>
 	            </div>
 	        </div>
 	        <div class="item item-text-wrap" id="page-list-item-container2" style="">
@@ -23,6 +23,7 @@
 	            </span>
 	            <span ng-if="!isEmpty(val[0].weekly_off)">
 	            <p>Weekly Off: {{val[0].weekly_off}}</p>
+
 				</span>
 	        </div>
 	        <div class="row">
@@ -31,7 +32,7 @@
 	            </div>
 	            <div class="col col-50">
 	                <button class="button button-block button button-small button-assertive
-		  		   icon ion-android-share-alt icon-right" ng-click="share(val)">
+		  		   icon ion-android-share-alt icon-right" ng-click="share(val[0].shop_name,val[0].shop_address,val[0].time_from,val[0].time_to,val[0].mobile,val[0].shop_image)">
 					  Share
 					</button>
 	            </div>

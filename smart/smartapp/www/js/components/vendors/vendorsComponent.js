@@ -4,14 +4,22 @@ app.component("vendors", {
         $scope.title = $state.name;
         $scope.IMG_BASE = IMG_BASE;
         $scope.vendors = [];
-
-        $scope.share = function(item) {
-            $cordovaSocialSharing.share("SmartNarayangoan App", "I am using Smart Narayangaon app and its awesome for us", 'https://www.google.nl/images/srpr/logo4w.png', "http://smartnarayangaon.com").then(function(result) {
+        $scope.sub_category_id = $state.params.id;
+        $scope.share = function(name,address,from,to,mobile,image) {
+          
+            if(image==''){
+              image= "http://www.smartnarayangaon.com/images/"+"default_icon.png";
+            }else{
+               image="http://www.smartnarayangaon.com/images/"+image; 
+            }       
+     
+            var msg = "SmartNarayangoan App "+"Shop Name:"+name+" Shop Address: "+address+" Time: "+from+"-"+to;
+           
+            $cordovaSocialSharing.share(msg, image, "http://www.smartnarayangaon.com").then(function(result) {
                 console.log(JSON.parse(result));
             }, function(err) {
                 console.log(err);
             });
-
         };
         $scope.isEmpty = function (obj) {
 			for (var i in obj) if (obj.hasOwnProperty(i)) return false;

@@ -1,9 +1,9 @@
-
+ 
 		<div class = "row">
 		
 <ion-slides style="height:170px;"   options="options" slider="data.slider">
     <ion-slide-page   ng-repeat="slider in sliders">
-      <img ng-src="{{IMG_BASE}}{{slider.image}}" style="width:100%;margin:auto;display:block" >
+      <img image-lazy-src="{{IMG_BASE}}{{slider.image}}" image-lazy-loader="lines" title="{{category.category_name}}" lazy-scroll-resize="true" alt="slider image" style="width:100%;margin:auto;display:block" >
 		   		<p>{{slider.caption}}</p>
     </ion-slide-page>
     

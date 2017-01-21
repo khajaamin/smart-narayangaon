@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-var app = angular.module('starter', ['ionic', 'ionic-ratings', 'ngCordova', 'ionic-timepicker'])
+var app = angular.module('starter', ['ionic', 'ionic-ratings', 'ngCordova', 'ionic-timepicker','ionicLazyLoad'])
 
 .run(function($ionicPlatform, $rootScope, $state, sessionService, $location) {
 
@@ -41,21 +41,25 @@ var app = angular.module('starter', ['ionic', 'ionic-ratings', 'ngCordova', 'ion
         });
     })
     .constant({
-        //  API_BASE:"http://localhost/anwar/smart-narayangaon/smart/smartnar/public_html/index.php?r=",
-        //  IMG_BASE:"http://localhost/anwar/smart-narayangaon/smart/smartnar/public_html/images/",
+          // API_BASE:"http://localhost/anwar/smart-narayangaon/smart/smartnar/public_html/index.php?r=",
+          // IMG_BASE:"http://localhost/anwar/smart-narayangaon/smart/smartnar/public_html/images/",
 
         API_BASE: "http://www.smartnarayangaon.com/index.php?r=",
         IMG_BASE: "http://www.smartnarayangaon.com/images/",
     })
-    .config(function($stateProvider, $urlRouterProvider) {
+    .config(function($stateProvider, $urlRouterProvider,$httpProvider) {
         // $httpProvider.defaults.useXDomain = true;
         //  delete $httpProvider.defaults.headers.common['X-Requested-With']
+
+$httpProvider.interceptors.push('httpLoaderInterceptor');
 
         $stateProvider
 
             .state('app', {
             url: '/app',
             abstract: true,
+            
+            cache: false,
             templateUrl: 'templates/menu.html',
             controller: 'AppCtrl'
         })
@@ -107,7 +111,7 @@ var app = angular.module('starter', ['ionic', 'ionic-ratings', 'ngCordova', 'ion
 
             })
             .state('app.buses', {
-                url: '/buses/:id/:name',
+                url: '/buses/:id',
                 accessRule: "@",
                 views: {
                     'menuContent': {
@@ -167,7 +171,7 @@ var app = angular.module('starter', ['ionic', 'ionic-ratings', 'ngCordova', 'ion
                 }
             })
             .state('app.shopdetails', {
-                url: '/shopdetails/:id',
+                url: '/shopdetails/:id/:sub_category_id',
                 accessRule: "@",
                 views: {
                     'menuContent': {
@@ -301,4 +305,64 @@ app.factory('sessionService', ['$http', function($http) {
             return localStorage.removeItem(key);
         },
     };
-}])
+}]);
+
+app.factory('httpLoaderInterceptor', ['$rootScope', function($rootScope) {
+  // Active request count
+  var requestCount = 0;
+
+  function startRequest(config) {
+    // If no request ongoing, then broadcast start event
+    if( !requestCount ) {
+      $rootScope.$broadcast('httpLoaderStart');
+    }
+
+    requestCount++;
+    return config;
+  }
+
+  function endRequest(arg) {
+    // No request ongoing, so make sure we don’t go to negative count
+    if( !requestCount )
+      return;
+    
+    requestCount--;
+    // If it was last ongoing request, broadcast event
+    if( !requestCount ) {
+      $rootScope.$broadcast('httpLoaderEnd');
+    }
+
+    return arg;
+  }
+
+  // Return interceptor configuration object
+  return {
+    'request': startRequest,
+    'requestError': endRequest,
+    'response': endRequest,
+    'responseError': endRequest
+  };
+}]);
+
+
+app.directive('httpLoader', function() {
+  return {
+    restrict: 'EA',
+    link: function(scope, element) {
+      // Store original display mode of element
+      var shownType = element.css('display');
+      function hideElement() {
+        element.css('display', 'none');
+      }
+
+      scope.$on('httpLoaderStart', function() {
+        element.css('display', shownType);
+      });
+
+      scope.$on('httpLoaderEnd',hideElement);
+
+      // Initially hidden
+      hideElement();
+    }
+  };
+});

@@ -29,6 +29,7 @@ use Yii;
  * @property string $collected_by
  * @property string $webingeer_coupon
  * @property integer $status
+ * @property integer $ratings
  */
 class Vendor extends \yii\db\ActiveRecord
 {
@@ -36,6 +37,7 @@ class Vendor extends \yii\db\ActiveRecord
      * @inheritdoc
      */
     public $file;
+    public $ratings;
     
     public static function tableName()
     {
@@ -49,9 +51,9 @@ class Vendor extends \yii\db\ActiveRecord
     {
         return [
             [['app_id', 'date', 'shop_name', 'shop_address', 'time_from', 'time_to',  'shop_owner', 'description', 'mobile','status'], 'required'],
-            [['app_id','mobile', 'opt_mobileno', 'status'], 'integer'],
+            [['app_id','mobile', 'opt_mobileno', 'status','ratings'], 'integer'],
             [['file'],'file'],
-            [['date', 'time_from', 'time_to'], 'safe'],
+            [['date', 'time_from', 'time_to','ratings'], 'safe'],
             [['map_location'], 'number'],
             [['webingeer_coupon'], 'string'],
             [['shop_name', 'shop_address',  'weekly_off', 'shop_owner', 'description', 'email', 'opt_email', 'website', 'collected_by'], 'string', 'max' => 255],
@@ -86,6 +88,33 @@ class Vendor extends \yii\db\ActiveRecord
             'collected_by' => 'Collected By',
             'webingeer_coupon' => 'Webingeer Coupon',
             'status' => 'Status',
+            'ratings'=>"Ratings"
         ];
     }
+
+    public function getRatings()
+    {
+        return $this->hasMany(Ratings::className(), ['shop_id' => 'id']);
+    }
+
+     
+
+
+    public  function ratingsAvg($id)
+    {
+        $sql =  "SELECT avg(r.value) as ratings FROM vendor v, vendor_categories vc, ratings r  WHERE v.id = r.shop_id AND v.id=:vendorId";  
+        $vendor = $this::findBySql($sql,[':vendorId'=>$id])->all();
+            return $vendor[0]->ratings;
+    }
+
+    public  function categoryDetails($id)
+    {
+        $sql =  "SELECT c.*  FROM  vendor_categories vc, categories c  WHERE vc.category_id = c.id AND vc.vendor_id=:vendorId";  
+        $vendor = $this::findBySql($sql,[':vendorId'=>$id])->all();
+            
+        echo "<pre>";print_r($vendor); exit; 
+        return $vendor;
+    }
+
+
 }

@@ -53,6 +53,8 @@ app.controller('AddCntrl',function($scope,$http,$state,sessionService,API_BASE,i
 
             if ($scope.adwithus.$valid) {             
             	//$scope.message = $scope.data;
+                //http://www.smartnarayangaon.com/index.php?
+                //http://localhost/anwar/smart-narayangaon/smart/smartnar/public_html/index.php?r=
             	$http({
             		method: 'POST',
             		url : 'http://www.smartnarayangaon.com/index.php?r=vendorsapi/create-new',
