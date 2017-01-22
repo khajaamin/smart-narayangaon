@@ -8,16 +8,17 @@ var app = angular.module('starter', ['ionic', 'ionic-ratings', 'ngCordova', 'ion
 
 .run(function($ionicPlatform, $rootScope, $state, sessionService, $location) {
 
-
+        var button = false;
         $rootScope.$on('$stateChangeStart',
             function(event, toState, toParams, fromState, fromParams) {
                 // do something
                 if (toState.accessRule == "@") {
                     var currentUser = {};
-                    currentUser = sessionService.get("LoggedInUser");
-                    console.log("currentUser", currentUser);
+
+                     currentUser = sessionService.get("LoggedInUser");
+                    //console.log("currentUser", currentUser);
                     if (typeof currentUser == 'undefined' || currentUser == null) {
-                        console.log("currentUser", currentUser);
+                        //console.log("currentUser", currentUser);
                         $location.path("app/signup")
                         $state.go('app.signup');
                     }
@@ -182,7 +183,7 @@ $httpProvider.interceptors.push('httpLoaderInterceptor');
                             $scope.newDetails = {};
                             $scope.onDetailsChange = function(newDetails) {
                                 $scope.newDetails = newDetails;
-                                console.log("new Details", newDetails);
+                          //      console.log("new Details", newDetails);
                             };
 
 
@@ -313,8 +314,10 @@ app.factory('httpLoaderInterceptor', ['$rootScope', function($rootScope) {
 
   function startRequest(config) {
     // If no request ongoing, then broadcast start event
+     button = true;
     if( !requestCount ) {
       $rootScope.$broadcast('httpLoaderStart');
+
     }
 
     requestCount++;
@@ -323,6 +326,7 @@ app.factory('httpLoaderInterceptor', ['$rootScope', function($rootScope) {
 
   function endRequest(arg) {
     // No request ongoing, so make sure we don’t go to negative count
+    button = false;
     if( !requestCount )
       return;
     
@@ -365,4 +369,33 @@ app.directive('httpLoader', function() {
       hideElement();
     }
   };
+});
+
+app.directive('buttonLoading', function($compile) {
+  
+   return {
+    restrict: 'EA',
+    link: function(scope, element,$attrs) {
+      // Store original display mode of element
+      var shownType = element.css('display');
+      function hideElement() {
+          element.removeAttr('disabled');
+      }
+
+      scope.$on('httpLoaderStart', function() {
+         $attrs.$set('disabled', 'disabled');
+      });
+
+      scope.$on('httpLoaderEnd',hideElement);
+      // Initially hidden
+      hideElement();
+        var html = '<span side="right" style="float:right;"><ion-spinner  style="float:right;" side="right" icon="android" http-loader></ion-spinner></span>'; 
+        var newElement  = angular.element(html);
+        var loader  = $compile (newElement)(scope); 
+
+        element.append(loader);
+
+    }
+  };
+
 });

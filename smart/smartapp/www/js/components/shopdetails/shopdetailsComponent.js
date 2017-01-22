@@ -18,13 +18,13 @@ app.component("shopDetails",
 
 		ShopDetailsService.find({id:$state.params.id}).then(
 				function(res){
-					console.log(res.data);
+					//console.log(res.data);
 
 					$scope.shopdetails = res.data;
 					//$state.reload();
 					self.change({details:$scope.shopdetails}); 				
 						rate = Math.ceil($scope.shopdetails.ratings);
-						console.log(rate);
+						//console.log(rate);
 					 	$scope.ratingsObject = {
 				        iconOn : 'ion-ios-star',
 				        iconOff : 'ion-ios-star-outline',
