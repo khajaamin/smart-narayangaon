@@ -1,6 +1,6 @@
 app.component("arrivalbus",
 {
-	templateUrl:"/js/components/arrivalbus/arrivalbus.html",
+	templateUrl:"js/components/arrivalbus/arrivalbus.html",
 	controller:function($scope,$state,ArrivalbusService,IMG_BASE) {
 		//$scope.dt = new Date();
 		$scope.IMG_BASE = IMG_BASE; 

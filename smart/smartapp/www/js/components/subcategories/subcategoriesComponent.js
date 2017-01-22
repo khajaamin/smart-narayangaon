@@ -1,5 +1,5 @@
 app.component("subCategories", {
-    templateUrl: "/js/components/subcategories/subcategories.html",
+    templateUrl: "js/components/subcategories/subcategories.html",
     controller: function($scope, $state, CategoriesService, IMG_BASE) {
 
         $scope.title = $state.name;
