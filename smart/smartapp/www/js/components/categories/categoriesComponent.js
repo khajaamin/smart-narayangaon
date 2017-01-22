@@ -1,6 +1,6 @@
 app.component("categories",
 {
-	templateUrl:"/js/components/categories/categories.html",
+	templateUrl:"js/components/categories/categories.html",
 	controller:function($scope,CategoriesService,IMG_BASE) {
 
 		$scope.IMG_BASE = IMG_BASE; 

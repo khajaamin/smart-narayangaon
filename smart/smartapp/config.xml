@@ -11,7 +11,7 @@
   <access origin="*"/>
   <access origin="tel:*" launch-external="yes"/>
   <access origin="mailto:*" launch-external="yes"/>
-  <access origin="href:*" launch-external="yes" />
+  <access origin="href:*" launch-external="yes"/>
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
@@ -58,5 +58,6 @@
   <icon src="resources/android/icon/drawable-xhdpi-icon.png"/>
   <allow-navigation href="http://172.16.3.80:8100"/>
   <allow-navigation href="http://192.168.0.63:8100"/>
+  <allow-navigation href="http://192.168.0.52:8100"/>
   <plugin name="ionic-plugin-keyboard" spec="~2.2.1"/>
 </widget>
