@@ -8,7 +8,7 @@ app.controller('shopdetailCtrl',function($scope,$http){
       method:"GET",
       }).then(function(res){
         $scope.shop=res.data.Vendors;
-        console.log(res.data.Vendors);                  
+    //    console.log(res.data.Vendors);                  
     }); 
     }());
 })

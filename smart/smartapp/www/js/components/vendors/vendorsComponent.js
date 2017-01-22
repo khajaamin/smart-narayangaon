@@ -30,7 +30,7 @@ app.component("vendors", {
                 console.log(res.data);
                		if(res.data.length==0){
                			$scope.vendors = null;
-               			console.log($scope.vendors);
+               			//console.log($scope.vendors);
                		}else{
                			$scope.vendors = res.data;	
                		}

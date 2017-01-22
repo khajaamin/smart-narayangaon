@@ -9,21 +9,13 @@ app.controller('AppCtrl', function($scope,AppService, $ionicModal,$ionicPopup, $
     
 //$scope.dt = new Date();
 // console.log(dt);
-$scope.show = function() {
-    $ionicLoading.show({
-      template: '<p>Loading...</p><ion-spinner></ion-spinner>'
-    });
-  };
 
-  $scope.hide = function(){
-        $ionicLoading.hide();
-  };
     $scope.IMG_BASE = IMG_BASE; 
     $scope.apps = []; 
     AppService.find({city:'Narayangaon',status:1}).then(
         function(res){
           $scope.apps = res.data;
-          console.log( $scope.apps);
+          //console.log( $scope.apps);
         },
         function(error){
           console.log(error);

@@ -15,7 +15,7 @@ app.controller('ReviewController',function($scope,$http,$ionicModal,$state,$ioni
 
       $scope.ratingsCallback = function(rating) {
 
-        console.log('Selected rating is : ', rating);
+        //console.log('Selected rating is : ', rating);
         $scope.rate = rating;
       
       };
@@ -55,7 +55,7 @@ app.controller('ReviewController',function($scope,$http,$ionicModal,$state,$ioni
                  $scope.closeModal();
                   $state.reload();
 //                    $window.location.reload();
-                            console.log('Thank you for not eating my delicious ice cream cone');
+                    //        console.log('Thank you for not eating my delicious ice cream cone');
                        });
 
 

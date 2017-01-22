@@ -6,7 +6,7 @@ app.component("advertisements",
  	 $scope.advertisements = [];
 
      AdvertisementsService.find().then(function(res){
-        console.log(res);
+        //console.log(res);
      $scope.advertisements = res.data;
 
      });
