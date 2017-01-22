@@ -18,7 +18,7 @@ app.component("offers",
 					if(res.data.length==0){
 
                			$scope.offerdetails = null;
-               			console.log($scope.offerdetails);
+               			//console.log($scope.offerdetails);
                	
                		}else{
                			$scope.offerdetails = res.data;	

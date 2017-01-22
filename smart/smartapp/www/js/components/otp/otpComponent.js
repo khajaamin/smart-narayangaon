@@ -11,7 +11,7 @@ app.component("otp", {
                 function(res) {
                     //console.log(res);
                     $scope.msg = res.data;
-                    console.log(res.data);
+                    //console.log(res.data);
                     if (res.data == "fail") {
                         $state.go('app.otp');
                     } else {
@@ -28,4 +28,5 @@ app.component("otp", {
                 });
         }
     }
+
 });

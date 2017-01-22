@@ -19,8 +19,9 @@ app.component("slider", {
             $scope.slider = data.slider;
         });
 
+
         $scope.$on("$ionicSlides.slideChangeStart", function(event, data) {
-            console.log('Slide change is beginning');
+            //console.log('Slide change is beginning');
         });
 
         $scope.$on("$ionicSlides.slideChangeEnd", function(event, data) {
@@ -35,7 +36,7 @@ app.component("slider", {
         $scope.sliders = [];
 
         SliderService.find().then(function(res) {
-            console.log(res);
+            //  console.log(res);
             $scope.sliders = res.data;
 
         });

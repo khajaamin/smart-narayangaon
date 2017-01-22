@@ -9,11 +9,12 @@ app.component("subCategoryImage", {
         $scope.shopimage = [];
 
 
+
         SubCategoryImageService.find({ id: $state.params.id, sub_category_id: $state.params.sub_category_id }).then(
             function(res) {
-                console.log(res.data);
+                // console.log(res.data);
                 $scope.shopimage = res.data;
-                console.log($scope.shopimage);
+                // console.log($scope.shopimage);
                 //                    self.change({details:$scope.shopdetails}); 
 
             },

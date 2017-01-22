@@ -28,15 +28,14 @@ app.component("vendors", {
         };
         VendorsService.find({ category_id: $state.params.parent_id, subcategory_id: $state.params.id }).then(
             function(res) {
-                console.log(res.data);
+                // console.log(res.data);
+
                 if (res.data.length == 0) {
                     $scope.vendors = null;
-                    console.log($scope.vendors);
+                    //console.log($scope.vendors);
                 } else {
                     $scope.vendors = res.data;
                 }
-
-
 
             },
             function(error) {
