@@ -89,18 +89,27 @@ public function behaviors()
         }       
      }
      public function actionShopImage(){
+     
         $id =Yii::$app->request->get('sub_category_id');
+     
         $model = new Categories();
+        
         if(!empty($id)){
+
             $image = $model->find()->where(['id'=>$id,'app_id'=>1])->asArray()->one();
+        
             return $image;
+        
         }
+     
      }
 
     public function actionSlider()
     {
         $parent_id =Yii::$app->request->get('parent_id'); 
+    
         $model = new Sliders();
+    
         if(!empty($parent_id))
         { 
             return $model->find()->where(['app_id'=>1])->asArray()->all();  
@@ -109,11 +118,15 @@ public function behaviors()
             return $model->find()->where(['app_id'=>1])->asArray()->all();   
         }       
      }
-     public function actionCreateNew()
-     {
+    
+    public function actionCreateNew()
+    {
       
-        $model = new Vendor();
+            $model = new Vendor();
+            //$data = Yii::$app->request->post();
+            
             $data =  json_decode(utf8_encode(file_get_contents("php://input")), false);
+               
             if(empty($data)){
                 
 
@@ -124,22 +137,30 @@ public function behaviors()
                 $model->shop_address=$data->shopaddress;
                 $model->time_from=$data->from;
                 $model->time_to=$data->to;
-                $model->weekly_off=$data->weeklyoff;
+                $model->weekly_off= (isset($data->weeklyoff))?$data->weeklyoff:"";
                 $model->shop_owner=$data->owner;
                 $model->description=$data->description;
                 $model->mobile=$data->contactno;
-                $model->opt_mobileno=$data->optcontact;
-                $model->opt_email=$data->email;
+                $model->opt_mobileno=(isset($data->optcontact))?$data->optcontact:"";
+                $model->opt_email= (isset($data->email))?$data->email:"";
                 $model->collected_by="Self Registered";
                 $model->webingeer_coupon = 'No';
-                if($model->save(false)){
+            
+                if($model->save()){
+            
                     $response["message"]="Thank You for Register We will Contact you very soon";
-                  
+                    $response["data"] = $model;          
+                    $response["status"] = "success";          
+                    
                     return $response;
+            
                 }else{
+            
                     $response['message']="Error";
-                    $output = json_encode($response);
-                    return $output;
+                    $response["status"] = "error";
+                    $response["data"] =  $model->errors;  
+                    return $response;
+            
                 }
             }
      }

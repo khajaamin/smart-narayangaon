@@ -6,14 +6,18 @@ app.component("otp",
 	$scope.user = {}; 
 		$scope.msg = []; 
 		
-$scope.user.mobile = sessionService.get("mobileNo");
-		$scope.otp = function()
+		$scope.user.mobile = sessionService.get("mobileNo");
+		
+		$scope.otp = function(frm)
 		{
-		OtpService.otp($scope.user).then(
+			if(frm.$valid)
+			{
+				OtpService.otp($scope.user).then(
 				function(res){
 					//console.log(res);
 					$scope.msg = res.data;
 					//console.log(res.data);
+					
 					if(res.data == "fail"){
 						$state.go('app.otp');	
 					}else{
@@ -28,6 +32,7 @@ $scope.user.mobile = sessionService.get("mobileNo");
 				function(error){
 					console.log(error);
 				});
+			}
 		}
 }
 });

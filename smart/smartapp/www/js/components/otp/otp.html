@@ -1,4 +1,4 @@
-		
+	<span style="text-align: center; color: red;">{{msg}}</span>	
 <form  name="signupFrm" ng-submit="otp(signupFrm)" novalidate>		
     <div class="list">
     <label class="item item-input item-floating-label item-stacked-label">
@@ -12,7 +12,10 @@
     </label>
     <label class="item item-input item-floating-label">
       <span class="input-label">OTP</span>
-      <input type="text" ng-model="user.otp" name="otp" placeholder="Enter OTP here" required>
+      <input type="number" ng-model="user.otp" name="otp" placeholder="Enter OTP here" required>
+       <span class="error" ng-if="signupFrm.otp.$error.number">
+        Please Enter Correct OTP
+        </span>
        <span ng-if="signupFrm.$submitted|| signupFrm.email.$touched">
        	<span class="error" ng-if="signupFrm.email.$error.required">
       	Please Enter OTP

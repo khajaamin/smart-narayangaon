@@ -46,30 +46,31 @@ app.controller('AddCntrl',function($scope,$http,$state,sessionService,API_BASE,i
         $scope.data ={};
     };
     
-  
+      $scope.errorlist =false; 
 
-	  $scope.submitForm = function() {
-    
+	  $scope.submitForm = function(frm) {
 
-            if ($scope.adwithus.$valid) {             
-            	//$scope.message = $scope.data;
-                //http://www.smartnarayangaon.com/index.php?
-                //http://localhost/anwar/smart-narayangaon/smart/smartnar/public_html/index.php?r=
+        if(frm.$valid)
+        {
             	$http({
             		method: 'POST',
-            		url : 'http://www.smartnarayangaon.com/index.php?r=vendorsapi/create-new',
+            		url : API_BASE + 'vendorsapi/create-new',
             		data:$scope.data, 
             		headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-            	}).success(function(data) {		              		
+            	}).success(function(res) {		              		
 		            
+                    if(res.status == 'success')
+                    {
 		             //$scope.message = data[0].message;	
-		            alert(data.message);
-
-		            //alert(data.message);	            	
-          			$scope.reset();
+                        alert(res.message);
+                     $scope.reset();
+                    }
+                    else
+                    {
+                        $scope.errorlist  = res.data; 
+                    }
           		});
-            }
-
+            } // Validation If condition END
         };
 
 

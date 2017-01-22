@@ -2,15 +2,24 @@
   <ion-content>
   <div ng-controller="AddCntrl">
   	<button class="button button-full button-positive">SD Advertisements</button>
-	{{message}}
-	<form name="adwithus" ng-submit="submitForm()" novalidate>
+	<div class="error" ng-repeat="(key,errors) in errorlist">
+		<div ng-repeat="error in errors">
+			{{error}}	
+			</div>
+
+	</div>
+	<form name="adwithus" ng-submit="submitForm(adwithus)" novalidate>
+			{{adwithus.$error}}
 		<div class="list">
 		  <label class="item item-input item-floating-label">
 		    <span class="input-label">Shop Name / Service</span>
 		    <input type="text" name="shopname" ng-model="data.shopname" placeholder="Shop Name / Service" required>
-		  	<span ng-if="adwithus.$submitted|| adwithus.shopname.$touched">
-		  	<span class="error" ng-show="adwithus.shopname.$error.required">Shop Name / Service is required.</span>
-		  	</span>
+			  	<span ng-if="adwithus.$submitted|| adwithus.shopname.$touched">
+				  	<span class="error" ng-show="adwithus.shopname.$error.required">
+				  		Shop Name / Service is required.
+				  	</span>
+				  	<span server-validation="shop_name" ng-if="errorList != false">   IN ERROR LIST </span>
+			  	</span>
 		  </label>
 		  <label class="item item-input item-floating-label">
 		    <span class="input-label">Shop Address</span>

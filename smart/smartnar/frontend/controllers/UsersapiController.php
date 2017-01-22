@@ -127,20 +127,24 @@ class UsersapiController extends ActiveController
                 //return $verify;
             }else{
 
-                
-                    $mobile=$data->mobile;
-                    $otp = $data->otp;
-                
-                 $verify = $model->find()->where(['contact'=>$mobile,'otp'=>$otp])->asArray()->one();
+                    
+                 $verify = $model->find()->where(['contact'=>$data->mobile,'otp'=>$data->otp])->asArray()->one();
                  
                  if(empty($verify)){
                 
-                     $verify = 'fail';
-                     return $verify;
+                    $response['message']="Error";
+                    $response["status"] = "error";
+                    $response["data"] =  $model->errors;  
+                    return $response;
                 
                  }else{
 
-                  return $verify;    
+                    $response["message"]="Welcome";
+                    $response["data"] = $verify;          
+                    $response["status"] = "success";          
+                    
+                    return $response;
+    
                 
                  }
                 
