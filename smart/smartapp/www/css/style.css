@@ -111,6 +111,7 @@ p .ionic_ratings .icon {
 .signup-head h4{
   color: #387EF5;
 }
-/*ion-spinner{
-  float: right !important;
-}*/
+.spinner-android {
+ color: #fff !important;
+ stroke: #fff !important;
+}
