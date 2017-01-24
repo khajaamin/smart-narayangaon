@@ -6,9 +6,9 @@
 // 'starter.controllers' is found in controllers.js
 var app = angular.module('starter', ['ionic', 'ionic-ratings', 'ngCordova', 'ionic-timepicker','ionicLazyLoad'])
 
-.run(function($ionicPlatform, $rootScope, $state, sessionService, $location) {
+.run(function($ionicPlatform, $rootScope, $state, sessionService, $location,$ionicPopup,$cordovaNetwork) {
 
-        var button = false;
+        
         $rootScope.$on('$stateChangeStart',
             function(event, toState, toParams, fromState, fromParams) {
                 // do something
@@ -30,6 +30,7 @@ var app = angular.module('starter', ['ionic', 'ionic-ratings', 'ngCordova', 'ion
         $ionicPlatform.ready(function() {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
+           
             if (window.cordova && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
                 cordova.plugins.Keyboard.disableScroll(true);
@@ -39,14 +40,23 @@ var app = angular.module('starter', ['ionic', 'ionic-ratings', 'ngCordova', 'ion
                 // org.apache.cordova.statusbar required
                 StatusBar.styleDefault();
             }
+
+            if ($cordovaNetwork.isOffline()) {
+                 $ionicPopup.confirm({
+                    title: "Internet is not working",
+                    content: "Internet is not working on your device."
+                 });
+            }
+
+
         });
     })
     .constant({
-           API_BASE:"http://localhost/anwar/smart-narayangaon/smart/smartnar/public_html/index.php?r=",
-           IMG_BASE:"http://localhost/anwar/smart-narayangaon/smart/smartnar/public_html/images/",
+           //API_BASE:"http://localhost/anwar/smart-narayangaon/smart/smartnar/public_html/index.php?r=",
+           //IMG_BASE:"http://localhost/anwar/smart-narayangaon/smart/smartnar/public_html/images/",
 
-        //API_BASE: "http://www.smartnarayangaon.com/index.php?r=",
-        //IMG_BASE: "http://www.smartnarayangaon.com/images/",
+        API_BASE: "http://www.smartnarayangaon.com/index.php?r=",
+        IMG_BASE: "http://www.smartnarayangaon.com/images/",
     })
     .config(function($stateProvider, $urlRouterProvider,$httpProvider) {
         // $httpProvider.defaults.useXDomain = true;

@@ -32,7 +32,7 @@ use yii\helpers\ArrayHelper;
 
      <?php $data = ArrayHelper::map(\common\models\Categories::find()->where(['parent_id'=>0])->asArray()->all(),'id','category_name');
     ?>
-    <?php echo $form->field($model, 'category_id')->dropDownList($data,
+    <?= $form->field($model, 'category_id')->dropDownList($data,
         ['prompt'=>'Select Category','multiple'=>'multiple', 'onchange'=>'
                 $.get({url:"'.Yii::$app->urlManager->createUrl('vendor/subcategory') . '",data:{id:$(this).val()}, 
                 success:function( data ) {
@@ -43,7 +43,7 @@ use yii\helpers\ArrayHelper;
 
    <?php $data = ArrayHelper::map(\common\models\Categories::find()->where(['!=','parent_id',0])->asArray()->all(),'id','category_name');
     ?>
-    <?php echo $form->field($model, 'subcategory_id')->dropDownList($data,
+    <?= $form->field($model, 'subcategory_id')->dropDownList($data,
         ['multiple'=>'multiple','prompt'=>'Select Sub Category','id'=>'subcategory_dropdown']);?>
    
 

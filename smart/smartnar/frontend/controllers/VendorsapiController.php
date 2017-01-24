@@ -63,6 +63,13 @@ public function behaviors()
                 return $data;
 
         }else{
+            $subcategory_id=4;
+            $categories=$vendorCategory->find()->select('vendor_id')->distinct()->where(['category_id'=>$subcategory_id,'app_id'=>1])->asArray()->all();    
+
+            for ($i=0; $i < sizeof($categories); $i++) { 
+                
+                  $data[]= $model->find()->select('*')->distinct()->where(['id'=>$categories[$i]['vendor_id'],'status'=>1])->asArray()->all();
+            }
 
                 return $data;
 
@@ -135,8 +142,8 @@ public function behaviors()
                 $model->date=date('Y-m-d');
                 $model->shop_name=$data->shopname;
                 $model->shop_address=$data->shopaddress;
-                $model->time_from=$data->from;
-                $model->time_to=$data->to;
+                $model->time_from=(isset($data->from))?$data->from:"";
+                $model->time_to=(isset($data->to))?$data->to:"";
                 $model->weekly_off= (isset($data->weeklyoff))?$data->weeklyoff:"";
                 $model->shop_owner=$data->owner;
                 $model->description=$data->description;

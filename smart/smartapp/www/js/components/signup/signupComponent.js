@@ -1,6 +1,6 @@
 app.component("signup", {
     templateUrl: "js/components/signup/signup.html",
-    controller: function($scope, $state, SignupService, sessionService) {
+    controller: function($scope, $state, SignupService, sessionService,$ionicPopup) {
         $scope.title = $state.name;
         $scope.user = {};
         $scope.msg = [];
@@ -10,8 +10,28 @@ app.component("signup", {
             if (frm.$valid) {
                 SignupService.signup($scope.user).then(
                     function(res) {
-                        $scope.msg = res.data;
-                        $state.go('app.otp');
+
+                        $scope.msg = res.data.status;
+                      	
+                      	if(res.data.status=='error'){
+
+                      var alertPopup = $ionicPopup.alert({
+                         title: res.data.title,
+                         template: res.data.message
+                       });
+
+                       alertPopup.then(function(res) {
+						$scope.count++;
+						console.log($scope.count);
+						$state.go('app.otp');	
+						});
+
+                      	}else{
+
+                      		$state.go('app.otp');	
+
+                      	}
+                      
                     },
                     function(error) {
                         console.log(error);

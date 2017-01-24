@@ -2,6 +2,7 @@
   <ion-content>
   <div ng-controller="AddCntrl">
   	<button class="button button-full button-positive">SD Advertisements</button>
+	{{message}}
 	<div class="error" ng-repeat="(key,errors) in errorlist">
 		<div ng-repeat="error in errors">
 			{{error}}	
@@ -9,7 +10,7 @@
 
 	</div>
 	<form name="adwithus" ng-submit="submitForm(adwithus)" novalidate>
-			{{adwithus.$error}}
+			
 		<div class="list">
 		  <label class="item item-input item-floating-label">
 		    <span class="input-label">Shop Name / Service</span>
@@ -18,7 +19,7 @@
 				  	<span class="error" ng-show="adwithus.shopname.$error.required">
 				  		Shop Name / Service is required.
 				  	</span>
-				  	<span server-validation="shop_name" ng-if="errorList != false">   IN ERROR LIST </span>
+
 			  	</span>
 		  </label>
 		  <label class="item item-input item-floating-label">

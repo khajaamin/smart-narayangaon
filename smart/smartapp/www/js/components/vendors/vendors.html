@@ -7,8 +7,10 @@
 	<div ng-repeat="(key,val) in vendors">
 	    <div class="card">
 	        <div class="row">
-	            <div class="col col-60" ui-sref="app.specialoffers">
-	                <div class="padding">{{val[0].shop_name}}</div>
+	            <div class="col col-60">
+	                <div class="padding">
+	                	<a href="#/app/shopdetails/{{val[0].id}}/{{sub_category_id}}">{{val[0].shop_name}}</a>
+	                </div>
 	            </div>
 	            <div class="col">
 	                <a href="#/app/shopdetails/{{val[0].id}}/{{sub_category_id}}" class="button button-block button-small  button-stable">View Details ></a>

@@ -1,18 +1,12 @@
-<div ng-repeate="advertise in advertisements"></div>
   <div class="list card">
-    <div class="item item-avatar">
-      
-        <sub-category-image style="float: left; margin-left: -60px;"
-        ></sub-category-image>
-      
+    <div class="item item-avatar">      
+      <sub-category-image style="float: left; margin-left: -60px;"></sub-category-image>      
       <h2>{{shopdetails.shop_name}}</h2>
-      <p>{{shopdetails.shop_owner}}</p>
-      
+      <p>{{shopdetails.shop_owner}}</p>      
     </div>
-
     <div class="item item-body">     
-      <img  ng-if="!isEmpty(sshopdetails.shop_image)"  class="full-image" image-lazy-src="{{IMG_BASE}}{{shopdetails.shop_image}}"  lazy-scroll-resize="true" image-lazy-loader="lines"  title="{{shopdetails.shop_name}}" width="100%">
-       <img  ng-if="isEmpty(sshopdetails.shop_image)"  class="full-image" image-lazy-src="{{IMG_BASE}}default_icon.png" title="{{shopdetails.shop_name}}" lazy-scroll-resize="true" image-lazy-loader="lines" style="width: 100%; height: 200px;">
+      <img  ng-if="!isEmpty(shopdetails.shop_image)"  class="full-image" image-lazy-src="{{IMG_BASE}}{{shopdetails.shop_image}}"  lazy-scroll-resize="true" image-lazy-loader="lines"  title="{{shopdetails.shop_name}}" width="100%">
+       <img  ng-if="isEmpty(shopdetails.shop_image)"  class="full-image" image-lazy-src="{{IMG_BASE}}default_icon.png" title="{{shopdetails.shop_name}}" lazy-scroll-resize="true" image-lazy-loader="lines" style="width: 100%; height: 200px;">
       <p>
         {{shopdetails.description}}
       </p>

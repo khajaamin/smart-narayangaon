@@ -50,7 +50,7 @@ class Vendor extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['shop_name', 'shop_address', 'time_from', 'time_to',  'shop_owner', 'description', 'mobile'], 'required'],
+            [['shop_name', 'shop_address', 'shop_owner', 'description', 'mobile'], 'required'],
             [['app_id','mobile', 'opt_mobileno', 'status','ratings'], 'integer'],
             [['file'],'file'],
             [['date', 'time_from', 'time_to','ratings'], 'safe'],
