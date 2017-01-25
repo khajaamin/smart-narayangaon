@@ -1,4 +1,4 @@
-app.controller('AppCtrl', function($scope,AppService, $ionicModal,$ionicPopup, $timeout ,$http,hexify,IMG_BASE,$ionicLoading) {
+app.controller('AppCtrl', function($scope,AppService, $ionicModal,$ionicPopup, $timeout ,$http,hexify,IMG_BASE,$ionicLoading,$cordovaNetwork) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.

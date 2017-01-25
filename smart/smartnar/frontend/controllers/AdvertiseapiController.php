@@ -45,15 +45,18 @@ public function behaviors()
         //$city =Yii::$app->request->get('city');
         //$status =Yii::$app->request->get('status'); 
     	$parent_id =Yii::$app->request->get('parent_id'); 
+    
         $model = new Advertisements();
+    
         if(!empty($parent_id))
         { 
             return $model->find()->where(['app_id'=>1])->asArray()->all();  
         }
         else{
+    
             return $model->find()->where(['app_id'=>1])->asArray()->all();   
         } 	    
-     }
+    }
 
 
 }

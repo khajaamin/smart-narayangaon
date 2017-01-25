@@ -144,10 +144,26 @@ class VendorController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+        $model = $this->findModel($id);
+        $vendorCategory = new VendorCategories();
+        if ($model->load(Yii::$app->request->post())) {
             
+            $subcat=  $vendorCategory->load(Yii::$app->request->post('Vendor')['subcategory_id']); 
+            $id = $vendorCategory->load(Yii::$app->request->post('Vendor')['app_id']);
+            
+            $subcategories =  Yii::$app->request->post('Vendor')['subcategory_id']; 
+            $app_id = Yii::$app->request->post('Vendor')['app_id'];
+
+            foreach($subcategories as $category)
+            {   
+                $vendorCategory->app_id =$app_id;
+                $vendorCategory->vendor_id = $model->id;
+                $vendorCategory->category_id = $category;                 
+                $vendorCategory->save(false); 
+            } 
+            //print_r($vendorCategory);exit;
             $imageName = "vendor_image_".rand();
 
             $model->file = UploadedFile::getInstance($model,'shop_image');

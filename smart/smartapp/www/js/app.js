@@ -6,9 +6,9 @@
 // 'starter.controllers' is found in controllers.js
 var app = angular.module('starter', ['ionic', 'ionic-ratings', 'ngCordova', 'ionic-timepicker','ionicLazyLoad'])
 
-.run(function($ionicPlatform, $rootScope, $state, sessionService, $location) {
+.run(function($ionicPlatform, $rootScope, $state, sessionService, $location,$ionicPopup) {
 
-        var button = false;
+        
         $rootScope.$on('$stateChangeStart',
             function(event, toState, toParams, fromState, fromParams) {
                 // do something
@@ -30,6 +30,7 @@ var app = angular.module('starter', ['ionic', 'ionic-ratings', 'ngCordova', 'ion
         $ionicPlatform.ready(function() {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
+           
             if (window.cordova && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
                 cordova.plugins.Keyboard.disableScroll(true);
@@ -39,11 +40,14 @@ var app = angular.module('starter', ['ionic', 'ionic-ratings', 'ngCordova', 'ion
                 // org.apache.cordova.statusbar required
                 StatusBar.styleDefault();
             }
+
+
+
         });
     })
     .constant({
-          // API_BASE:"http://localhost/anwar/smart-narayangaon/smart/smartnar/public_html/index.php?r=",
-          // IMG_BASE:"http://localhost/anwar/smart-narayangaon/smart/smartnar/public_html/images/",
+           //API_BASE:"http://localhost/anwar/smart-narayangaon/smart/smartnar/public_html/index.php?r=",
+           //IMG_BASE:"http://localhost/anwar/smart-narayangaon/smart/smartnar/public_html/images/",
 
         API_BASE: "http://www.smartnarayangaon.com/index.php?r=",
         IMG_BASE: "http://www.smartnarayangaon.com/images/",
@@ -399,3 +403,18 @@ app.directive('buttonLoading', function($compile) {
   };
 
 });
+
+
+// app.directive("serverValidation",function(){
+
+//     return {
+//         link:function(scope,element,attrs){
+//             console.log(scope.errorlist);
+//             if(scope.errorlist)
+//             {
+//                 console.log(scope.errorlist[attrs.serverValidation]); 
+//             }
+
+//         }
+//     };
+// }); 

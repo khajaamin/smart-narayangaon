@@ -9,6 +9,7 @@ angular.module('starter.controllers', ['ionic','jett.ionic.filter.bar','ngCordov
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
+
   // Form data for the login modal
   $scope.loginData = {};
 

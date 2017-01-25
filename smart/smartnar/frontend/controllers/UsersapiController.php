@@ -55,40 +55,41 @@ class UsersapiController extends ActiveController
             
                 $model->contact= $data->mobile;
                 $model->username = $data->name;
-                $model->email = $data->email;
-                
-                        $mob = $data->mobile;
+                $model->email = (isset($data->email))?$data->email:"";
+                $mob = $data->mobile;
+                 
                     if($model->save(false)){
 
                          $random = rand(5000,10000); 
                         // //Sms intrigration goes here
-                            // //Send SMS and save otp into same object
+                       // //Send SMS and save otp into same object
                         $model->otp = $random;
                         
                         
                         $model->save(false);
                         {
-                                        $verify = Yii::$app->SmsResponse->getResponse($mob,$random);
-                            
+                             //$verify = Yii::$app->SmsResponse->getResponse($mob,$random);
+                             
+                             $response['otp']="OTP sent";
                         }                    
-
-                        $response["message"]="Thank You for Register We will Contact you very soon";
-                      
-                        return $response;
-                
+                             $response["message"]="Registered Sucessfully";
+                             $response["data"] = $model;          
+                             $response["status"] = "success";   
+                             return $response; 
                     }else{
-                
-                        $response['message']="Error";
-                
-                        $output = json_encode($response);
-                
-                        return $output;
+
+                        $response['title']="Server Error";
+                        $response['message']="Please Try Again";
+                        $response["status"] = "error";
+                        $response["data"] =  $model->errors;  
+                        return $response;
                     }
 
                 
 
             }
     }
+
 
 
     public function actionRating()
@@ -127,20 +128,24 @@ class UsersapiController extends ActiveController
                 //return $verify;
             }else{
 
-                
-                    $mobile=$data->mobile;
-                    $otp = $data->otp;
-                
-                 $verify = $model->find()->where(['contact'=>$mobile,'otp'=>$otp])->asArray()->one();
+                    
+                 $verify = $model->find()->where(['contact'=>$data->mobile,'otp'=>$data->otp])->asArray()->one();
                  
                  if(empty($verify)){
-                
-                     $verify = 'fail';
-                     return $verify;
+                    $response['title']="Verification Failed";               
+                    $response['message']="OTP Does Not Match";
+                    $response["status"] = "error";
+                    $response["data"] =  $verify;  
+                    return $response;
                 
                  }else{
 
-                  return $verify;    
+                    $response["message"]="Welcome";
+                    $response["data"] = $verify;          
+                    $response["status"] = "success";          
+                    
+                    return $response;
+    
                 
                  }
                 
