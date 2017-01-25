@@ -6,7 +6,7 @@
 // 'starter.controllers' is found in controllers.js
 var app = angular.module('starter', ['ionic', 'ionic-ratings', 'ngCordova', 'ionic-timepicker','ionicLazyLoad'])
 
-.run(function($ionicPlatform, $rootScope, $state, sessionService, $location,$ionicPopup,$cordovaNetwork) {
+.run(function($ionicPlatform, $rootScope, $state, sessionService, $location,$ionicPopup) {
 
         
         $rootScope.$on('$stateChangeStart',
@@ -41,12 +41,6 @@ var app = angular.module('starter', ['ionic', 'ionic-ratings', 'ngCordova', 'ion
                 StatusBar.styleDefault();
             }
 
-            if ($cordovaNetwork.isOffline()) {
-                 $ionicPopup.confirm({
-                    title: "Internet is not working",
-                    content: "Internet is not working on your device."
-                 });
-            }
 
 
         });

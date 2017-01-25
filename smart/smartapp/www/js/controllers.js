@@ -1,6 +1,6 @@
 angular.module('starter.controllers', ['ionic','jett.ionic.filter.bar','ngCordova'])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout ,$http,hexify,$cordovaNetwork) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout ,$http,hexify) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
