@@ -49,13 +49,10 @@ class UsersapiController extends ActiveController
          $data =  json_decode(utf8_encode(file_get_contents("php://input")), false);
          if(empty($data)){
 
-               // $model->username="sumit Sutar";
-               //  $model->email='ssumit4078@gmail.com';
-               //  $model->otp=rand(5000,10000);
-               //  return  $model->sendEmail(Yii::$app->params['adminEmail']);            
-                 $response["message"]="Something Went wrong";
-                 return $response;
-                     
+                    $response['message']='Something Went Wrong';
+
+                    return $response;
+                 
             }else{
                 $model->contact= $data->mobile;
                 $model->username = $data->name;
@@ -65,11 +62,35 @@ class UsersapiController extends ActiveController
                 'contact' => $model->contact
                 ])->count();
                 if($user == 1){
+                    
                     $user = User::find()->where(['contact' => $model->contact])->one();
-                    return $user;
-                    // $response['status']='exist';
-                    // $response['message']='You Have Already Registered click Ok to get New OTP';
-                    // return $response;
+                    
+                    $otp = rand(5000,10000); 
+                    
+                    $stat=Yii::$app->db->createCommand("UPDATE user SET otp=:otp WHERE id=:id")->bindValue(':otp',$otp)->bindValue(':id', $user->id)->execute();
+                    
+                    if($stat){
+
+                        //$verify = Yii::$app->SmsResponse->getResponse($mob,$random); 
+                        
+                        if(!empty($user->email)){
+                        
+                            $model->sendEmail(Yii::$app->params['adminEmail'],$otp);
+                        
+                        }                           
+
+                        $response['status']='exist';
+                        
+                        $response['message']='You Have Already Registered click Ok to get New OTP';
+                        $response['data']=$user;
+                        
+                        return $response;
+                    
+                    }else{
+
+                        $response['error']='Please Try Again';
+                    }
+                    
                 }else{
                                 
                  
@@ -86,7 +107,7 @@ class UsersapiController extends ActiveController
                              //$verify = Yii::$app->SmsResponse->getResponse($mob,$random); 
                              
                              if(!empty($model->email)){
-                                 $model->sendEmail(Yii::$app->params['adminEmail']);
+                                 $model->sendEmail(Yii::$app->params['adminEmail'],$model->otp);
                              }                           
                              $response['otp']="OTP sent";
                         }                    
@@ -104,7 +125,7 @@ class UsersapiController extends ActiveController
                     }
 
 
-                 }   
+                }   
                
 
             }

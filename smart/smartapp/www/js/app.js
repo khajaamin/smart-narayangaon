@@ -7,7 +7,19 @@
 var app = angular.module('starter', ['ionic', 'ionic-ratings', 'ngCordova', 'ionic-timepicker','ionicLazyLoad'])
 
 .run(function($ionicPlatform, $rootScope, $state, sessionService, $location,$ionicPopup) {
-
+         if(window.Connection) {
+      if(navigator.connection.type == Connection.NONE) {
+        $ionicPopup.confirm({
+          title: 'No Internet Connection',
+          content: 'Sorry, no Internet connectivity detected. Please reconnect and try again.'
+        })
+        .then(function(result) {
+          if(!result) {
+            ionic.Platform.exitApp();
+          }
+        });
+      }
+    }
         
         $rootScope.$on('$stateChangeStart',
             function(event, toState, toParams, fromState, fromParams) {
@@ -151,6 +163,17 @@ $httpProvider.interceptors.push('httpLoaderInterceptor');
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/arrival.html',
+                    }
+
+                }
+            })
+            .state('app.network', {
+                url: '/network',
+                accessRule: "@",
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/network.html',
+                         controller: 'networkController'
                     }
 
                 }

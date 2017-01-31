@@ -12,15 +12,20 @@ app.component("signup", {
                     function(res) {
 
                         $scope.msg = res.data.status;
-                      	//console.log(res.data);
+                      	console.log(res.data);
                       	if(res.data.status=='exist'){
 
                             var alertPopup = $ionicPopup.alert({
                              title: 'Notify',
                              template: res.data.message,
                            });
+                             alertPopup.then(function(res) {
+                      
+                              $state.go('app.otp'); 
+                          });
                         
                         }else{
+
                         if(res.data.status=='error'){
 
                         var alertPopup = $ionicPopup.alert({
@@ -28,15 +33,32 @@ app.component("signup", {
                            template: res.data.message
                          });
 
-                       alertPopup.then(function(res) {
-              						$scope.count++;
-              						console.log($scope.count);
-              						$state.go('app.otp');	
-              				});
+                           alertPopup.then(function(res) {
+                  		
+                  						$state.go('app.otp');	
+                  				});
 
                       	}else{
-                      		$state.go('app.otp');	
-                      	}
+
+                          var confirmPopup = $ionicPopup.confirm({
+                             title: 'Confirm',
+                             template: 'Are you sure?'
+                          });
+
+                          confirmPopup.then(function(res) {
+                             if(res) {
+                             
+                                  $state.go('app.otp');
+                             
+                             } else {
+
+                                console.log('Not sure!');
+                             }
+                          });
+
+                      			
+                      	
+                        }
                       }
                     },
                     function(error) {
