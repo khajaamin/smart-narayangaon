@@ -15,7 +15,7 @@ app.controller('AppCtrl', function($scope,AppService, $ionicModal,$ionicPopup, $
     AppService.find({city:'Narayangaon',status:1}).then(
         function(res){
           $scope.apps = res.data;
-          //console.log( $scope.apps);
+          console.log( $scope.apps);
         },
         function(error){
           console.log(error);

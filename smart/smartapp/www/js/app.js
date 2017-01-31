@@ -46,11 +46,11 @@ var app = angular.module('starter', ['ionic', 'ionic-ratings', 'ngCordova', 'ion
         });
     })
     .constant({
-           //API_BASE:"http://localhost/anwar/smart-narayangaon/smart/smartnar/public_html/index.php?r=",
-           //IMG_BASE:"http://localhost/anwar/smart-narayangaon/smart/smartnar/public_html/images/",
+           API_BASE:"http://localhost/anwar/smart-narayangaon/smart/smartnar/public_html/index.php?r=",
+           IMG_BASE:"http://localhost/anwar/smart-narayangaon/smart/smartnar/public_html/images/",
 
-        API_BASE: "http://www.smartnarayangaon.com/index.php?r=",
-        IMG_BASE: "http://www.smartnarayangaon.com/images/",
+        //API_BASE: "http://www.smartnarayangaon.com/index.php?r=",
+        //IMG_BASE: "http://www.smartnarayangaon.com/images/",
     })
     .config(function($stateProvider, $urlRouterProvider,$httpProvider) {
         // $httpProvider.defaults.useXDomain = true;
@@ -406,7 +406,6 @@ app.directive('buttonLoading', function($compile) {
 
 
 // app.directive("serverValidation",function(){
-
 //     return {
 //         link:function(scope,element,attrs){
 //             console.log(scope.errorlist);
@@ -414,7 +413,6 @@ app.directive('buttonLoading', function($compile) {
 //             {
 //                 console.log(scope.errorlist[attrs.serverValidation]); 
 //             }
-
 //         }
 //     };
 // }); 

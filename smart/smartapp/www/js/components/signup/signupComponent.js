@@ -12,26 +12,32 @@ app.component("signup", {
                     function(res) {
 
                         $scope.msg = res.data.status;
-                      	
-                      	if(res.data.status=='error'){
+                      	//console.log(res.data);
+                      	if(res.data.status=='exist'){
 
-                      var alertPopup = $ionicPopup.alert({
-                         title: res.data.title,
-                         template: res.data.message
-                       });
+                            var alertPopup = $ionicPopup.alert({
+                             title: 'Notify',
+                             template: res.data.message,
+                           });
+                        
+                        }else{
+                        if(res.data.status=='error'){
+
+                        var alertPopup = $ionicPopup.alert({
+                           title: res.data.title,
+                           template: res.data.message
+                         });
 
                        alertPopup.then(function(res) {
-						$scope.count++;
-						console.log($scope.count);
-						$state.go('app.otp');	
-						});
+              						$scope.count++;
+              						console.log($scope.count);
+              						$state.go('app.otp');	
+              				});
 
                       	}else{
-
                       		$state.go('app.otp');	
-
                       	}
-                      
+                      }
                     },
                     function(error) {
                         console.log(error);
