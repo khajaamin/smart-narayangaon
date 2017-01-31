@@ -8,6 +8,7 @@ use yii\rest\ActiveController;
 use yii\web\Response;
 use common\models\Ratings; 
 use common\models\Users;
+use common\models\User;
 use yii\db\Expression;
 use linslin\yii2\curl;
 use yii\web\JsExpression;
@@ -48,15 +49,50 @@ class UsersapiController extends ActiveController
          $data =  json_decode(utf8_encode(file_get_contents("php://input")), false);
          if(empty($data)){
 
-                $response["message"]="Something Went wrong";
-                return $response;
-                     
+                    $response['message']='Something Went Wrong';
+
+                    return $response;
+                 
             }else{
-            
                 $model->contact= $data->mobile;
                 $model->username = $data->name;
                 $model->email = (isset($data->email))?$data->email:"";
                 $mob = $data->mobile;
+                $user = User::find()->where([
+                'contact' => $model->contact
+                ])->count();
+                if($user == 1){
+                    
+                    $user = User::find()->where(['contact' => $model->contact])->one();
+                    
+                    $otp = rand(5000,10000); 
+                    
+                    $stat=Yii::$app->db->createCommand("UPDATE user SET otp=:otp WHERE id=:id")->bindValue(':otp',$otp)->bindValue(':id', $user->id)->execute();
+                    
+                    if($stat){
+
+                        //$verify = Yii::$app->SmsResponse->getResponse($mob,$random); 
+                        
+                        if(!empty($user->email)){
+                        
+                            $model->sendEmail(Yii::$app->params['adminEmail'],$otp);
+                        
+                        }                           
+
+                        $response['status']='exist';
+                        
+                        $response['message']='You Have Already Registered click Ok to get New OTP';
+                        $response['data']=$user;
+                        
+                        return $response;
+                    
+                    }else{
+
+                        $response['error']='Please Try Again';
+                    }
+                    
+                }else{
+                                
                  
                     if($model->save(false)){
 
@@ -68,11 +104,14 @@ class UsersapiController extends ActiveController
                         
                         $model->save(false);
                         {
-                             //$verify = Yii::$app->SmsResponse->getResponse($mob,$random);
+                             //$verify = Yii::$app->SmsResponse->getResponse($mob,$random); 
                              
+                             if(!empty($model->email)){
+                                 $model->sendEmail(Yii::$app->params['adminEmail'],$model->otp);
+                             }                           
                              $response['otp']="OTP sent";
                         }                    
-                             $response["message"]="Registered Sucessfully";
+                             $response["message"]="Please Check Your Mobile or Email";
                              $response["data"] = $model;          
                              $response["status"] = "success";   
                              return $response; 
@@ -85,7 +124,9 @@ class UsersapiController extends ActiveController
                         return $response;
                     }
 
-                
+
+                }   
+               
 
             }
     }

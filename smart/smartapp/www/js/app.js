@@ -7,7 +7,19 @@
 var app = angular.module('starter', ['ionic', 'ionic-ratings', 'ngCordova', 'ionic-timepicker','ionicLazyLoad'])
 
 .run(function($ionicPlatform, $rootScope, $state, sessionService, $location,$ionicPopup) {
-
+         if(window.Connection) {
+      if(navigator.connection.type == Connection.NONE) {
+        $ionicPopup.confirm({
+          title: 'No Internet Connection',
+          content: 'Sorry, no Internet connectivity detected. Please reconnect and try again.'
+        })
+        .then(function(result) {
+          if(!result) {
+            ionic.Platform.exitApp();
+          }
+        });
+      }
+    }
         
         $rootScope.$on('$stateChangeStart',
             function(event, toState, toParams, fromState, fromParams) {
@@ -46,11 +58,11 @@ var app = angular.module('starter', ['ionic', 'ionic-ratings', 'ngCordova', 'ion
         });
     })
     .constant({
-           //API_BASE:"http://localhost/anwar/smart-narayangaon/smart/smartnar/public_html/index.php?r=",
-           //IMG_BASE:"http://localhost/anwar/smart-narayangaon/smart/smartnar/public_html/images/",
+           API_BASE:"http://localhost/anwar/smart-narayangaon/smart/smartnar/public_html/index.php?r=",
+           IMG_BASE:"http://localhost/anwar/smart-narayangaon/smart/smartnar/public_html/images/",
 
-        API_BASE: "http://www.smartnarayangaon.com/index.php?r=",
-        IMG_BASE: "http://www.smartnarayangaon.com/images/",
+        //API_BASE: "http://www.smartnarayangaon.com/index.php?r=",
+        //IMG_BASE: "http://www.smartnarayangaon.com/images/",
     })
     .config(function($stateProvider, $urlRouterProvider,$httpProvider) {
         // $httpProvider.defaults.useXDomain = true;
@@ -151,6 +163,17 @@ $httpProvider.interceptors.push('httpLoaderInterceptor');
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/arrival.html',
+                    }
+
+                }
+            })
+            .state('app.network', {
+                url: '/network',
+                accessRule: "@",
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/network.html',
+                         controller: 'networkController'
                     }
 
                 }
@@ -406,7 +429,6 @@ app.directive('buttonLoading', function($compile) {
 
 
 // app.directive("serverValidation",function(){
-
 //     return {
 //         link:function(scope,element,attrs){
 //             console.log(scope.errorlist);
@@ -414,7 +436,6 @@ app.directive('buttonLoading', function($compile) {
 //             {
 //                 console.log(scope.errorlist[attrs.serverValidation]); 
 //             }
-
 //         }
 //     };
 // }); 

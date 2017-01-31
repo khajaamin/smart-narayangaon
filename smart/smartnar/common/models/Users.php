@@ -64,4 +64,16 @@ class Users extends \yii\db\ActiveRecord
             'updated_at' => 'Updated At',
         ];
     }
+
+    public function sendEmail($email,$otp)
+    {
+     	
+        return Yii::$app
+            ->mailer
+            ->compose(['html' => 'confirm-otp'], ['otp' => $otp,'username' => $this->username])
+            ->setFrom([Yii::$app->params['adminEmail'] => Yii::$app->name])
+            ->setTo($this->email)
+            ->setSubject('Smart Narayangaon Verify OTP')
+            ->send();
+    }
 }
