@@ -7,7 +7,11 @@
 var app = angular.module('starter', ['ionic', 'ionic-ratings', 'ngCordova', 'ionic-timepicker','ionicLazyLoad'])
 
 .run(function($ionicPlatform, $rootScope, $state, sessionService, $location,$ionicPopup) {
-         if(window.Connection) {
+    
+
+
+
+    if(window.Connection) {
       if(navigator.connection.type == Connection.NONE) {
         $ionicPopup.confirm({
           title: 'No Internet Connection',
@@ -28,7 +32,7 @@ var app = angular.module('starter', ['ionic', 'ionic-ratings', 'ngCordova', 'ion
                     var currentUser = {};
 
                      currentUser = sessionService.get("LoggedInUser");
-                    //console.log("currentUser", currentUser);
+                 //   console.log("currentUser", currentUser);
                     if (typeof currentUser == 'undefined' || currentUser == null) {
                         //console.log("currentUser", currentUser);
                         $location.path("app/signup")
@@ -56,6 +60,15 @@ var app = angular.module('starter', ['ionic', 'ionic-ratings', 'ngCordova', 'ion
 
 
         });
+
+        // var push = new Ionic.Push({
+    //       "debug": true
+    //     });
+     
+    //     push.register(function(token) {
+    //       console.log("My Device token:",token.token);
+    //       push.saveToken(token);  // persist the token in the Ionic Platform
+    //     });
     })
     .constant({
            API_BASE:"http://localhost/anwar/smart-narayangaon/smart/smartnar/public_html/index.php?r=",

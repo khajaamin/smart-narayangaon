@@ -14,6 +14,7 @@ app.component("otp",
 			{
 				OtpService.otp($scope.user).then(
 				function(res){
+				
 				if(res.data.status == "error"){
 					 
 					 var alertPopup = $ionicPopup.alert({
