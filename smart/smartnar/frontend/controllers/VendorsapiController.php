@@ -53,31 +53,16 @@ public function behaviors()
         $vendorCategory=new VendorCategories();
         if(!empty($subcategory_id))
         { 
-            $data = Vendor::find()->joinWith('user')->where(['vendor_categories.category_id'=>$subcategory_id])->all();
-            // $categories=$vendorCategory->find()->select('vendor_id')->distinct()->where(['category_id'=>$subcategory_id,'app_id'=>1])->asArray()->all();    
-
-            // for ($i=0; $i < sizeof($categories); $i++) { 
-                
-            //       $data[]= $model->find()->select('*')->distinct()->where(['id'=>$categories[$i]['vendor_id'],'status'=>1])->asArray()->all();
-            // }
-
+            $data = Vendor::find()->joinWith('user')->where(['vendor_categories.category_id'=>$subcategory_id,'vendor.status'=>1])->all();
                 return $data;
 
         }else{
-            $subcategory_id=4;
-$data = Vendor::find()->joinWith('user')->where(['vendor_categories.category_id'=>$subcategory_id])->all();
-        //       echo "<pre>"; 
-           //   print_r($data)  ;
-return $data;
-
-            // $categories=$vendorCategory->find()->select('vendor_id')->distinct()->where(['category_id'=>$subcategory_id,'app_id'=>1])->asArray()->all();    
-
-            // for ($i=0; $i < sizeof($categories); $i++) { 
-                
-            //       $data[]= $model->find()->select('*')->distinct()->where(['id'=>$categories[$i]['vendor_id'],'status'=>1])->asArray()->all();
-            // }
-
-            //     return $data;
+            
+            $subcategory_id=16;
+            
+            $data = Vendor::find()->joinWith('user')->where(['vendor_categories.category_id'=>$subcategory_id,'vendor.status'=>1])->all();
+    
+            return $data;
 
         }
 
@@ -148,8 +133,10 @@ return $data;
                 $model->date=date('Y-m-d');
                 $model->shop_name=$data->shopname;
                 $model->shop_address=$data->shopaddress;
-                $model->time_from=(isset($data->from))?$data->from:"";
-                $model->time_to=(isset($data->to))?$data->to:"";
+                
+
+                $model->time_from=(isset($data->from))?date("g:i a", strtotime($data->from)):"";
+                $model->time_to=(isset($data->to))?date("g:i a", strtotime($data->to)):"";
                 $model->weekly_off= (isset($data->weeklyoff))?$data->weeklyoff:"";
                 $model->shop_owner=$data->owner;
                 $model->description=$data->description;

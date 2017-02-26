@@ -155,14 +155,15 @@ class VendorController extends Controller
             
             $subcategories =  Yii::$app->request->post('Vendor')['subcategory_id']; 
             $app_id = Yii::$app->request->post('Vendor')['app_id'];
-
-            foreach($subcategories as $category)
-            {   
-                $vendorCategory->app_id =$app_id;
-                $vendorCategory->vendor_id = $model->id;
-                $vendorCategory->category_id = $category;                 
-                $vendorCategory->save(false); 
-            } 
+            if(!empty($subcategories)){
+                foreach($subcategories as $category)
+                {   
+                    $vendorCategory->app_id =$id;
+                    $vendorCategory->vendor_id = $model->id;
+                    $vendorCategory->category_id = $category;                 
+                    $vendorCategory->save(false); 
+                } 
+            }
             //print_r($vendorCategory);exit;
             $imageName = "vendor_image_".rand();
 

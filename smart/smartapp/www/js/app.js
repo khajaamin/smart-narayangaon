@@ -8,23 +8,6 @@ var app = angular.module('starter', ['ionic', 'ionic-ratings', 'ngCordova', 'ion
 
 .run(function($ionicPlatform, $rootScope, $state, sessionService, $location,$ionicPopup) {
     
-
-
-
-    if(window.Connection) {
-      if(navigator.connection.type == Connection.NONE) {
-        $ionicPopup.confirm({
-          title: 'No Internet Connection',
-          content: 'Sorry, no Internet connectivity detected. Please reconnect and try again.'
-        })
-        .then(function(result) {
-          if(!result) {
-            ionic.Platform.exitApp();
-          }
-        });
-      }
-    }
-        
         $rootScope.$on('$stateChangeStart',
             function(event, toState, toParams, fromState, fromParams) {
                 // do something
@@ -32,16 +15,15 @@ var app = angular.module('starter', ['ionic', 'ionic-ratings', 'ngCordova', 'ion
                     var currentUser = {};
 
                      currentUser = sessionService.get("LoggedInUser");
-                 //   console.log("currentUser", currentUser);
+        
                     if (typeof currentUser == 'undefined' || currentUser == null) {
-                        //console.log("currentUser", currentUser);
+        
                         $location.path("app/signup")
                         $state.go('app.signup');
                     }
 
                 }
-
-            })
+        })
 
         $ionicPlatform.ready(function() {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -61,14 +43,6 @@ var app = angular.module('starter', ['ionic', 'ionic-ratings', 'ngCordova', 'ion
 
         });
 
-        // var push = new Ionic.Push({
-    //       "debug": true
-    //     });
-     
-    //     push.register(function(token) {
-    //       console.log("My Device token:",token.token);
-    //       push.saveToken(token);  // persist the token in the Ionic Platform
-    //     });
     })
     .constant({
            API_BASE:"http://localhost/anwar/smart-narayangaon/smart/smartnar/public_html/index.php?r=",
@@ -78,8 +52,6 @@ var app = angular.module('starter', ['ionic', 'ionic-ratings', 'ngCordova', 'ion
         // IMG_BASE: "http://www.smartnarayangaon.com/images/",
     })
     .config(function($stateProvider, $urlRouterProvider,$httpProvider) {
-        // $httpProvider.defaults.useXDomain = true;
-        //  delete $httpProvider.defaults.headers.common['X-Requested-With']
 
 $httpProvider.interceptors.push('httpLoaderInterceptor');
 
@@ -331,7 +303,7 @@ $httpProvider.interceptors.push('httpLoaderInterceptor');
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('/app/home');
     });
-//http://192.168.0.56/yii-application/backend/web/index.php?r=site%2Flogin
+
 
 
 app.factory('sessionService', ['$http', function($http) {
@@ -439,16 +411,3 @@ app.directive('buttonLoading', function($compile) {
   };
 
 });
-
-
-// app.directive("serverValidation",function(){
-//     return {
-//         link:function(scope,element,attrs){
-//             console.log(scope.errorlist);
-//             if(scope.errorlist)
-//             {
-//                 console.log(scope.errorlist[attrs.serverValidation]); 
-//             }
-//         }
-//     };
-// }); 
