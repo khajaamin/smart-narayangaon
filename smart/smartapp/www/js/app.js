@@ -74,8 +74,8 @@ var app = angular.module('starter', ['ionic', 'ionic-ratings', 'ngCordova', 'ion
            API_BASE:"http://localhost/anwar/smart-narayangaon/smart/smartnar/public_html/index.php?r=",
            IMG_BASE:"http://localhost/anwar/smart-narayangaon/smart/smartnar/public_html/images/",
 
-        //API_BASE: "http://www.smartnarayangaon.com/index.php?r=",
-        //IMG_BASE: "http://www.smartnarayangaon.com/images/",
+        // API_BASE: "http://www.smartnarayangaon.com/index.php?r=",
+        // IMG_BASE: "http://www.smartnarayangaon.com/images/",
     })
     .config(function($stateProvider, $urlRouterProvider,$httpProvider) {
         // $httpProvider.defaults.useXDomain = true;

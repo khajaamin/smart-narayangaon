@@ -53,25 +53,31 @@ public function behaviors()
         $vendorCategory=new VendorCategories();
         if(!empty($subcategory_id))
         { 
-            $categories=$vendorCategory->find()->select('vendor_id')->distinct()->where(['category_id'=>$subcategory_id,'app_id'=>1])->asArray()->all();    
+            $data = Vendor::find()->joinWith('user')->where(['vendor_categories.category_id'=>$subcategory_id])->all();
+            // $categories=$vendorCategory->find()->select('vendor_id')->distinct()->where(['category_id'=>$subcategory_id,'app_id'=>1])->asArray()->all();    
 
-            for ($i=0; $i < sizeof($categories); $i++) { 
+            // for ($i=0; $i < sizeof($categories); $i++) { 
                 
-                  $data[]= $model->find()->select('*')->distinct()->where(['id'=>$categories[$i]['vendor_id'],'status'=>1])->asArray()->all();
-            }
+            //       $data[]= $model->find()->select('*')->distinct()->where(['id'=>$categories[$i]['vendor_id'],'status'=>1])->asArray()->all();
+            // }
 
                 return $data;
 
         }else{
             $subcategory_id=4;
-            $categories=$vendorCategory->find()->select('vendor_id')->distinct()->where(['category_id'=>$subcategory_id,'app_id'=>1])->asArray()->all();    
+$data = Vendor::find()->joinWith('user')->where(['vendor_categories.category_id'=>$subcategory_id])->all();
+        //       echo "<pre>"; 
+           //   print_r($data)  ;
+return $data;
 
-            for ($i=0; $i < sizeof($categories); $i++) { 
+            // $categories=$vendorCategory->find()->select('vendor_id')->distinct()->where(['category_id'=>$subcategory_id,'app_id'=>1])->asArray()->all();    
+
+            // for ($i=0; $i < sizeof($categories); $i++) { 
                 
-                  $data[]= $model->find()->select('*')->distinct()->where(['id'=>$categories[$i]['vendor_id'],'status'=>1])->asArray()->all();
-            }
+            //       $data[]= $model->find()->select('*')->distinct()->where(['id'=>$categories[$i]['vendor_id'],'status'=>1])->asArray()->all();
+            // }
 
-                return $data;
+            //     return $data;
 
         }
 

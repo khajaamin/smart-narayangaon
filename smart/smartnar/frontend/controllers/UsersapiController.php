@@ -75,7 +75,7 @@ class UsersapiController extends ActiveController
                         
                         if(!empty($user->email)){
                         
-                            $model->sendEmail(Yii::$app->params['adminEmail'],$otp);
+                          //  $model->sendEmail(Yii::$app->params['adminEmail'],$otp);
                         
                         }                           
 
@@ -107,7 +107,7 @@ class UsersapiController extends ActiveController
                              //$verify = Yii::$app->SmsResponse->getResponse($mob,$random); 
                              
                              if(!empty($model->email)){
-                                 $model->sendEmail(Yii::$app->params['adminEmail'],$model->otp);
+                            //     $model->sendEmail(Yii::$app->params['adminEmail'],$model->otp);
                              }                           
                              $response['otp']="OTP sent";
                         }                    

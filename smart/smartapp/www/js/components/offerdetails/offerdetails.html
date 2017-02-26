@@ -4,8 +4,8 @@
 	</div>
 </div>	
 <div ng-if="!isEmpty(offerdetails)">
-	<div class = "row">
-	   <div class = "col" ng-repeat="offers in offerdetails">
+	<div >
+	   <div ng-repeat="offers in offerdetails">
 		   	<div ng-if="offerdetails">
 			   	<div class="list card">
 				 <div class="item item-avatar">	 	    
@@ -14,7 +14,7 @@
 				    <p>{{offers.owner_name}}</p>
 				  </div>		 
 				  <div class="item item-image">
-				    <img src="{{IMG_BASE}}{{offers.image}}">
+				    <img src="{{IMG_BASE}}{{offers.image}}" image-lazy-loader="lines" >
 				  </div>
 				</div>
 			</div>
