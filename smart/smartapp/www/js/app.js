@@ -45,8 +45,8 @@ var app = angular.module('starter', ['ionic', 'ionic-ratings', 'ngCordova', 'ion
 
     })
     .constant({
-           API_BASE:"http://localhost/anwar/smart-narayangaon/smart/smartnar/public_html/index.php?r=",
-           IMG_BASE:"http://localhost/anwar/smart-narayangaon/smart/smartnar/public_html/images/",
+           API_BASE:"http://192.168.0.54/smartnarayangaon/smart-narayangaon/smart/smartnar/public_html/index.php?r=",
+           IMG_BASE:"http://192.168.0.54/smartnarayangaon/smart-narayangaon/smart/smartnar/public_html/images/",
 
         // API_BASE: "http://www.smartnarayangaon.com/index.php?r=",
         // IMG_BASE: "http://www.smartnarayangaon.com/images/",
